@@ -5,7 +5,7 @@
   "proxies": [
     {
       "path": "/api",
-      "proxyUrl": "https://api.usmontagnarde.fr"
+      "proxyUrl": "https://api.usmontagnarde.fr/"
     }
   ]
 }
