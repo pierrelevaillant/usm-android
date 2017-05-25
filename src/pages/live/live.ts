@@ -48,4 +48,18 @@ export class LivePage {
 	launch(url) {
 	}
 
+	doRefresh(refresher) {
+
+		return new Promise(resolve => {
+
+			this.http.get( this.url )
+		    .map(res => res.json())
+		    .subscribe(data => {
+		      resolve( data );
+		      refresher.complete();
+		    });
+
+		});
+	}
+
 }
