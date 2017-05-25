@@ -6,11 +6,14 @@ import { MyApp } from './app.component';
 
 import { LivePage } from '../pages/live/live';
 import { HomePage } from '../pages/home/home';
+import { MediasPage } from '../pages/medias/medias';
 import { SinglePostPage } from '../pages/single-post/single-post';
+import { SingleGalleryPage } from '../pages/single-gallery/single-gallery';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     LivePage,
     HomePage,
     TabsPage,
-    SinglePostPage
+    MediasPage,
+    SinglePostPage,
+    SingleGalleryPage
   ],
   imports: [
     BrowserModule,
@@ -31,11 +36,14 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     LivePage,
     HomePage,
     TabsPage,
-    SinglePostPage
+    MediasPage,
+    SinglePostPage,
+    SingleGalleryPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    SocialSharing,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
