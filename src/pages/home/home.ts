@@ -20,7 +20,6 @@ export class HomePage {
     	this.current_page = '1';
 
         this.loadPosts( this.current_page ).then( data => {
-			console.log('Posts loaded', data);
 			this.items = data;
 		});
     }
