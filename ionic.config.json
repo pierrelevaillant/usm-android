@@ -1,11 +1,5 @@
 {
   "name": "usm-android",
   "app_id": "27e65dc7",
-  "type": "ionic-angular",
-  "proxies": [
-    {
-      "path": "/api",
-      "proxyUrl": "https://api.usmontagnarde.fr/"
-    }
-  ]
+  "type": "ionic-angular"
 }

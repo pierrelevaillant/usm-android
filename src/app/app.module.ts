@@ -7,11 +7,11 @@ import { MyApp } from './app.component';
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
+import { SinglePostPage } from '../pages/single-post/single-post';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { NewsServiceProvider } from '../providers/news-service/news-service';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,8 @@ import { NewsServiceProvider } from '../providers/news-service/news-service';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    SinglePostPage
   ],
   imports: [
     BrowserModule,
@@ -32,13 +33,13 @@ import { NewsServiceProvider } from '../providers/news-service/news-service';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    SinglePostPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
-    NewsServiceProvider
+    {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
 export class AppModule {}

@@ -6,9 +6,12 @@
 
 <ion-content>
   <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-    <h2 [innerHTML]="item.title.rendered"></h2>
-    <p [innerHTML]="item.excerpt.rendered"></p>
+    <button ion-item *ngFor="let post of items" (click)="itemTapped($event, post)">
+    <h2 [innerHTML]="post.title.rendered"></h2>
     </button>
   </ion-list>
+
+  <ion-infinite-scroll (ionInfinite)="loadMore($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>
