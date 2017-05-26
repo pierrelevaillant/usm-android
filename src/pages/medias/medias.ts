@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { Http } from '@angular/http';
 import { USMService } from '../../services/USMService';
 import 'rxjs/add/operator/map';
@@ -15,8 +15,9 @@ import { SingleGalleryPage } from '../single-gallery/single-gallery';
 export class MediasPage {
     items: any;
 	current_page: number = 1;
+	loading: any;
 
-	constructor(public navCtrl: NavController, private http: Http, private USMService: USMService, private nav: NavController ) {}
+	constructor(public nav: NavController, private http: Http, private USMService: USMService, private loadingCtrl: LoadingController) {}
 
     ionViewDidLoad() {
         this.loadPosts( this.current_page ).then( data => {
@@ -25,13 +26,30 @@ export class MediasPage {
     }
 
     loadPosts( current_page ) {
+    	this.presentLoadingDefault();
 		return new Promise(resolve => {
 			this.USMService.getGalleries(current_page).subscribe(
                 data => {
-                    resolve(data.data); 
+                    resolve(data.data);
+                    this.loading.dismiss();
                 },
                 err => {}
             );
+		});
+	}
+
+	presentLoadingDefault() {
+		this.loading = this.loadingCtrl.create({
+			content: 'Chargement...'
+		});
+
+		this.loading.present();
+	}
+
+	doRefresh(refresher) {
+		this.loadPosts(this.current_page).then( data => {
+			this.items = data;
+			refresher.complete();
 		});
 	}
 

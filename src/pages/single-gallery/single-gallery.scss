@@ -1,3 +1,22 @@
 page-single-gallery {
 
+	.item-md.item-block {
+		padding-left: 1px;
+
+		.item-inner {
+			padding-right: 1px;
+			border: none;
+
+			.input-wrapper {
+				margin-bottom: -1px;
+
+				.label-md {
+					margin: 0
+				}
+			}
+
+			
+		}
+	}
+
 }
