@@ -38,6 +38,13 @@ export class USMService {
   
     // Get all posts
     // @param page : number page number
+    searchPosts(q: any) {
+        let url = this.api_host + this.api_version + 'search?q=' + q;
+        return this.request(url);
+    }
+
+    // Get all posts
+    // @param page : number page number
     getPosts(page: number = 1) {
         let url = this.api_host + this.api_version + 'posts?page=' + page;
         return this.request(url);

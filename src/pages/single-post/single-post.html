@@ -1,12 +1,14 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons start>
-      <button ion-button icon-only (click)="regularShare()">
-        <ion-icon name="share"></ion-icon>
-      </button>
-    </ion-buttons>
-    <ion-title *ngIf="post">{{post.categories[0].name}}</ion-title>
-  </ion-toolbar>
+	<ion-navbar>
+	  <ion-toolbar>
+	    <ion-buttons start>
+	      <button ion-button icon-only (click)="regularShare()">
+	        <ion-icon name="share"></ion-icon>
+	      </button>
+	    </ion-buttons>
+	    <ion-title *ngIf="post">{{post.categories[0].name}}</ion-title>
+	  </ion-toolbar>
+	</ion-navbar>
 </ion-header>
 
 

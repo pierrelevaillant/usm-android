@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar hideBackButton=true>
+    <ion-toolbar>
+      <ion-title>Recherche</ion-title>
+    </ion-toolbar>
+
+    <ion-toolbar>
+      <ion-searchbar
+        [(ngModel)]="searchQuery"
+        [showCancelButton]="shouldShowCancel"
+        (ionInput)="onInput($event)"
+        (ionCancel)="onCancel($event)">
+      </ion-searchbar>
+    </ion-toolbar>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <button ion-item *ngFor="let post of items" (click)="postTapped($event, post)">
+    <img *ngIf="post.featured_media" [src]="post.featured_media.sizes.slide.source_url"/>
+      <h2 [innerHTML]="post.title.rendered"></h2>
+      <small style="color:red;margin-right: 10px" [innerHTML]="post.categories[0].name"></small>
+      <small [innerHTML]="post.date"></small>
+    </button>
+  </ion-list>
+
+</ion-content>

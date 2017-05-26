@@ -4,6 +4,7 @@ import { Http } from '@angular/http';
 import { USMService } from '../../services/USMService';
 import 'rxjs/add/operator/map';
 
+import { SearchPage } from '../search/search';
 import { SinglePostPage } from '../single-post/single-post';
 
 @Component({
@@ -55,5 +56,9 @@ export class HomePage {
 		this.nav.push(SinglePostPage, {
 			post: post
 		});
+	}
+
+	openSearchPage() {
+		this.nav.push(SearchPage)
 	}
 }

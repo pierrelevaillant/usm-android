@@ -34,4 +34,8 @@ export class SingleGalleryPage {
 	        );
 		});
 	}
+
+	showGallery(post) {
+		//
+	}
 }

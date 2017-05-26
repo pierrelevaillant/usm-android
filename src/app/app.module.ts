@@ -4,8 +4,9 @@ import { HttpModule } from '@angular/http';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
-import { LivePage } from '../pages/live/live';
 import { HomePage } from '../pages/home/home';
+import { SearchPage } from '../pages/search/search';
+import { LivePage } from '../pages/live/live';
 import { MediasPage } from '../pages/medias/medias';
 import { SinglePostPage } from '../pages/single-post/single-post';
 import { SingleGalleryPage } from '../pages/single-gallery/single-gallery';
@@ -17,11 +18,11 @@ import { SocialSharing } from '@ionic-native/social-sharing';
 
 import {OneSignal} from '@ionic-native/onesignal';
 
-
 @NgModule({
   declarations: [
     MyApp,
     LivePage,
+    SearchPage,
     HomePage,
     TabsPage,
     MediasPage,
@@ -37,6 +38,7 @@ import {OneSignal} from '@ionic-native/onesignal';
   entryComponents: [
     MyApp,
     LivePage,
+    SearchPage,
     HomePage,
     TabsPage,
     MediasPage,
