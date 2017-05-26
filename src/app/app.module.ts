@@ -5,6 +5,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 import { HomePage } from '../pages/home/home';
+import { TeamsPage } from '../pages/teams/teams';
 import { SearchPage } from '../pages/search/search';
 import { LivePage } from '../pages/live/live';
 import { MediasPage } from '../pages/medias/medias';
@@ -22,6 +23,7 @@ import {OneSignal} from '@ionic-native/onesignal';
   declarations: [
     MyApp,
     LivePage,
+    TeamsPage,
     SearchPage,
     HomePage,
     TabsPage,
@@ -38,6 +40,7 @@ import {OneSignal} from '@ionic-native/onesignal';
   entryComponents: [
     MyApp,
     LivePage,
+    TeamsPage,
     SearchPage,
     HomePage,
     TabsPage,

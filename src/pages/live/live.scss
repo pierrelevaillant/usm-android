@@ -1,3 +1,10 @@
 page-live {
+	ion-label {
+		white-space: normal;
 
+		ion-avatar, h2 {
+			display: inline-block;
+    		vertical-align: middle;
+		}
+	}
 }

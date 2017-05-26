@@ -10,7 +10,7 @@
 		<ion-refresher-content></ion-refresher-content>
 	</ion-refresher>
 
-	<div ion-item *ngFor="let post of social_items">
+	<div ion-item *ngFor="let post of social_items" (click)="itemTapped($event, post)">
 		<div>
 			<ion-avatar item-left>
 				<img [src]="post.social.owner.image">

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, LoadingController } from 'ionic-angular';
+import { NavController, LoadingController, ModalController } from 'ionic-angular';
 import { Http } from '@angular/http';
 import { USMService } from '../../services/USMService';
 import 'rxjs/add/operator/map';
@@ -17,7 +17,7 @@ export class HomePage {
 	current_page: number = 1;
 	loading: any;
 
-	constructor(private loadingCtrl: LoadingController, public navCtrl: NavController, private http: Http, private nav: NavController, private USMService: USMService ) {}
+	constructor(public modalCtrl: ModalController, private loadingCtrl: LoadingController, public navCtrl: NavController, private http: Http, private nav: NavController, private USMService: USMService ) {}
 
     ionViewDidLoad() {
         this.loadPosts(this.current_page).then( data => {
@@ -77,6 +77,7 @@ export class HomePage {
 	}
 
 	openSearchPage() {
-		this.nav.push(SearchPage)
+		let modal = this.modalCtrl.create(SearchPage);
+    	modal.present();
 	}
 }

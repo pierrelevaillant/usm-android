@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, LoadingController } from 'ionic-angular';
 import { Http } from '@angular/http';
+import { Cordova } from 'ionic-native';
 import { USMService } from '../../services/USMService';
 import 'rxjs/add/operator/map';
 
@@ -43,7 +44,8 @@ export class LivePage {
 		this.loading.present();
 	}
 
-	launch(url) {
+	itemTapped(event, post) {
+		Cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
 	}
 
 	doRefresh(refresher) {

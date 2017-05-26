@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { Http } from '@angular/http';
 import { USMService } from '../../services/USMService';
 import 'rxjs/add/operator/map';
@@ -17,7 +17,12 @@ export class SearchPage {
 	current_page: number = 1;
 	searchQuery: '';
 
-	constructor(public navCtrl: NavController, private http: Http, private USMService: USMService, private nav: NavController ) {}
+	constructor(
+        public nav: NavController,
+        private http: Http,
+        public viewCtrl: ViewController,
+        private USMService: USMService
+    ) {}
 
     ionViewDidLoad() {
     	//
@@ -26,7 +31,6 @@ export class SearchPage {
     // Search components
 
     onInput(e) {
-    	console.log(this.searchQuery);
     	this.searchPosts(this.searchQuery).then( data => {
 			this.items = data['posts'];
 		});
@@ -48,5 +52,9 @@ export class SearchPage {
 			post: post
 		});
 	}
+
+    dismiss() {
+        this.viewCtrl.dismiss();
+    }
 
 }

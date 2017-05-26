@@ -70,5 +70,11 @@ export class USMService {
         return this.request(url);
     }
 
+    // Get teams
+    getTeams() {
+        let url = this.api_host + this.api_version + 'teams';
+        return this.request(url);
+    }
+
 
 }
