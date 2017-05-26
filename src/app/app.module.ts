@@ -16,6 +16,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { SocialSharing } from '@ionic-native/social-sharing';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 import {OneSignal} from '@ionic-native/onesignal';
 
@@ -50,6 +51,7 @@ import {OneSignal} from '@ionic-native/onesignal';
   ],
   providers: [
     StatusBar,
+    InAppBrowser,
     SplashScreen,
     SocialSharing,
     OneSignal,
