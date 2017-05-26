@@ -17,6 +17,7 @@
 			</ion-avatar>
 			<h2 [innerHTML]="post.social.owner.user"></h2>
 		</div>
+		<img *ngIf="post.social.image" [src]="post.social.image.url">
 		<div [innerHTML]="post.social.text"></div>
 	</div>
 </ion-content>
