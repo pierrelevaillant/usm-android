@@ -1,19 +1,20 @@
 import { Component } from '@angular/core';
 import { IonicPage, LoadingController } from 'ionic-angular';
 import { Http } from '@angular/http';
+import { USMService } from '../../services/USMService';
 import 'rxjs/add/operator/map';
 
 @IonicPage()
 @Component({
   selector: 'page-live',
   templateUrl: 'live.html',
+  providers: [USMService]
 })
 export class LivePage {
-    url: string = 'https://api-beta.usmontagnarde.fr/social';
     social_items: any;
     loading: any;
 
-	constructor(public loadingCtrl: LoadingController, private http: Http) {}
+	constructor(public loadingCtrl: LoadingController, private http: Http, private USMService: USMService) {}
 
     ionViewDidLoad() {
         this.loadPosts().then( data => {
@@ -22,18 +23,15 @@ export class LivePage {
     }
 
     loadPosts() {
-
+    	this.presentLoadingDefault();
 		return new Promise(resolve => {
-
-			this.presentLoadingDefault();
-
-			this.http.get( this.url )
-		    .map(res => res.json())
-		    .subscribe(data => {
-		      resolve( data );
-		      this.loading.dismiss();
-		    });
-
+			this.USMService.getSocial().subscribe(
+                data => {
+                    resolve(data);
+                    this.loading.dismiss();
+                },
+                err => {}
+            );
 		});
 	}
 
@@ -49,16 +47,9 @@ export class LivePage {
 	}
 
 	doRefresh(refresher) {
-
-		return new Promise(resolve => {
-
-			this.http.get( this.url )
-		    .map(res => res.json())
-		    .subscribe(data => {
-		      resolve( data );
-		      refresher.complete();
-		    });
-
+		this.loadPosts().then( data => {
+			this.social_items = data;
+			refresher.complete();
 		});
 	}
 
