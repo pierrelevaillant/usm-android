@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, LoadingController } from 'ionic-angular';
+import { IonicPage, LoadingController, Platform } from 'ionic-angular';
 import { Http } from '@angular/http';
-import { Cordova } from 'ionic-native';
 import { USMService } from '../../services/USMService';
 import 'rxjs/add/operator/map';
 
@@ -15,7 +14,7 @@ export class LivePage {
     social_items: any;
     loading: any;
 
-	constructor(public loadingCtrl: LoadingController, private http: Http, private USMService: USMService) {}
+	constructor(private platform: Platform, public loadingCtrl: LoadingController, private http: Http, private USMService: USMService) {}
 
     ionViewDidLoad() {
         this.loadPosts().then( data => {
@@ -45,7 +44,9 @@ export class LivePage {
 	}
 
 	itemTapped(event, post) {
-		Cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+		this.platform.ready().then(() => {
+            cordova.InAppBrowser.open('google.fr', "_system", "location=true");
+        });
 	}
 
 	doRefresh(refresher) {
