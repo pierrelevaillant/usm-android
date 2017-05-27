@@ -41,6 +41,50 @@ table tbody td, table tbody th {
     font-size: 16px !important;
 }
 
+.toolbar {
+
+  &-background-md {
+    background: $blue;
+  }
+
+  &-title-md {
+    color: #fff;
+  }
+
+  .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
+    color: #fff;
+  }
+
+  .toolbar .bar-button-default-md, .toolbar .bar-button-clear-md-default, .toolbar .bar-button-md-default, .bar-button-default-md:hover:not(.disable-hover), .bar-button-clear-md-default:hover:not(.disable-hover), .bar-button-md-default:hover:not(.disable-hover) {
+    color: rgba(255, 255, 255, .8);
+  }
+}
+
+.tabsDark {
+  .tabbar {
+    background: $light-black;
+  }
+
+  .tab-button {
+    color: rgba(255, 255, 255, .4);
+
+    &-icon {
+      color: rgba(255, 255, 255, .4);
+    }
+  }
+}
+
+//structure.scss
+scroll-content {
+  // existing css
+    &:before,
+    &:after {
+      content: '';
+      height: 1px;
+      position: absolute;
+      width: 1px;
+    }
+}
 
 /* Responsive tables
  

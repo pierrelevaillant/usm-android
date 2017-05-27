@@ -10,9 +10,8 @@ page-single-gallery {
 
 	.toolbar {
 		&-background-md {
-			border-color: #b2b2b2;
 			color: white;
-			background: #222529;
+			background: $light-black;
 		}
 
 		&-title-md {
@@ -21,12 +20,12 @@ page-single-gallery {
 	}
 
 	.content-md {
-		background: #171819;
+		background: $black;
 		color: white;
 	}
 
 	.item-md {
-		background: #171819;
+		background: $black;
 	}
 
 	.item-md.item-block {
@@ -40,7 +39,7 @@ page-single-gallery {
 				margin-bottom: -1px;
 
 				.label-md {
-					margin: 0
+					margin: 1px;
 				}
 			}
 			
