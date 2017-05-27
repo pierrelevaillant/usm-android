@@ -50,6 +50,13 @@ export class USMService {
         return this.request(url);
     }
 
+    // Get post
+    // @param id : number post id
+    getPost(id) {
+        let url = this.api_host + this.api_version + 'posts/' + id;
+        return this.request(url);
+    }
+
     // Get all galleries
     // @param page : number page number
     getGalleries(page: number = 1) {
