@@ -4,20 +4,20 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content class="live">
 
 	<ion-refresher (ionRefresh)="doRefresh($event)">
 		<ion-refresher-content></ion-refresher-content>
 	</ion-refresher>
 
-	<div ion-item *ngFor="let post of social_items" (click)="itemTapped($event, post)">
-		<div>
+	<div class="live__item" ion-item *ngFor="let post of social_items">
+		<header (click)="itemTapped($event, post)">
 			<ion-avatar item-left>
 				<img [src]="post.social.owner.image">
 			</ion-avatar>
 			<h2 [innerHTML]="post.social.owner.user"></h2>
-		</div>
+		</header>
 		<img *ngIf="post.social.image" [src]="post.social.image.url">
-		<div [innerHTML]="post.social.text"></div>
+		<div class="live__item__content" [innerHTML]="post.social.text"></div>
 	</div>
 </ion-content>
