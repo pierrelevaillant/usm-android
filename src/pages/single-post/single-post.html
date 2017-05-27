@@ -11,8 +11,11 @@
 	</ion-navbar>
 </ion-header>
 
-
 <ion-content class="singlePost">
+	<ion-refresher (ionRefresh)="doRefresh($event)">
+		<ion-refresher-content></ion-refresher-content>
+	</ion-refresher>
+
 	<div *ngIf="post">
 		<img *ngIf="post.featured_media" [src]="post.featured_media.sizes.medium.source_url" class="featured-image" />
 		<ion-card-content>
