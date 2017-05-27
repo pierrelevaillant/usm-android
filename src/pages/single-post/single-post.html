@@ -12,13 +12,14 @@
 </ion-header>
 
 
-<ion-content>
+<ion-content class="singlePost">
 	<div *ngIf="post">
 		<img *ngIf="post.featured_media" [src]="post.featured_media.sizes.medium.source_url" class="featured-image" />
 		<ion-card-content>
 			<ion-card-title>
 				<h1 [innerHTML]="post.title.rendered"></h1>
 			</ion-card-title>
+			<small class="singlePost__date" [innerHTML]="post.date | amCalendar:{lastWeek:'DD/MM/YYYY'}"></small>
 			<div [innerHTML]="post.content.rendered"></div>
 			</ion-card-content>
 	</div>
