@@ -11,33 +11,29 @@ import { USMService } from '../../services/USMService';
  */
 @IonicPage()
 @Component({
-  selector: 'page-teams',
-  templateUrl: 'teams.html',
-  providers: [USMService]
+    selector: 'page-teams',
+    templateUrl: 'teams.html'
 })
 export class TeamsPage {
 	teams: any;
 
-  constructor(
-  	public navCtrl: NavController,
-  	public navParams: NavParams,
-  	public actionSheetCtrl: ActionSheetController,
-    private USMService: USMService
-  ) {
-  }
+	constructor(
+		private navCtrl: NavController,
+		private navParams: NavParams,
+		private actionSheetCtrl: ActionSheetController,
+		private USMService: USMService
+	){}
 
-  ionViewDidLoad() {
-    
-    // Get teams
-    this.getTeams().then( data => {
-     	this.teams = data;
-     	this.presentActionSheet();
-	});
+  	ionViewDidLoad() {
+	    // Get teams
+	    this.getTeams().then( data => {
+	     	this.teams = data;
+	     	//this.presentActionSheet();
+		});
+  	}
 
-  }
-
-  // Functions
-  getTeams() {
+	// Functions
+	getTeams() {
 		return new Promise(resolve => {
 			this.USMService.getTeams().subscribe(
                 data => {
@@ -48,24 +44,24 @@ export class TeamsPage {
 		});
 	}
 
-  presentActionSheet() {
-  	let opt = {
-      title: 'Selectionnez une équipe',
-      buttons: []
-    };
-
-	for (var i = 0; i < this.teams['length']; ++i) {
-		opt.buttons.push({
-         text: this.teams[i].name,
-         handler: () => {
-           console.log(this.teams[i].name + ' clicked');
-         }
-       })
-	};
-
-
-    let actionSheet = this.actionSheetCtrl.create(opt);
-    actionSheet.present();
-  }
+	presentActionSheet() {
+		let opt = {
+			title: 'Selectionnez une équipe',
+			buttons: []
+		};
+	
+		for (var i = 0; i < this.teams['length']; ++i) {
+			opt.buttons.push({
+				text: this.teams[i].name,
+				handler: () => {
+					console.log(this.teams[i].name + ' clicked');
+				}
+			})
+		};
+	
+	
+		let actionSheet = this.actionSheetCtrl.create(opt);
+		actionSheet.present();
+	}
 
 }

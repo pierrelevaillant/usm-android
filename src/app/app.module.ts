@@ -4,6 +4,8 @@ import { HttpModule } from '@angular/http';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
+import { USMService } from '../services/USMService';
+
 import { HomePage } from '../pages/home/home';
 import { TeamsPage } from '../pages/teams/teams';
 import { SearchPage } from '../pages/search/search';
@@ -50,6 +52,7 @@ import {OneSignal} from '@ionic-native/onesignal';
     SingleGalleryPage
   ],
   providers: [
+    USMService,
     StatusBar,
     InAppBrowser,
     SplashScreen,

@@ -8,28 +8,32 @@ import 'rxjs/add/operator/map';
 @IonicPage()
 @Component({
   selector: 'page-live',
-  templateUrl: 'live.html',
-  providers: [USMService]
+  templateUrl: 'live.html'
 })
 export class LivePage {
     social_items: any;
     loading: any;
 
-	constructor(private iab: InAppBrowser, public loadingCtrl: LoadingController, private http: Http, private USMService: USMService) {}
+	constructor(
+		private iab: InAppBrowser,
+		private loadingCtrl: LoadingController,
+		private http: Http,
+		private USMService: USMService
+	) {}
 
     ionViewDidLoad() {
+    	this.presentLoadingDefault();
         this.loadPosts().then( data => {
 			this.social_items = data;
+			this.loading.dismiss();
 		});
     }
 
     loadPosts() {
-    	this.presentLoadingDefault();
 		return new Promise(resolve => {
 			this.USMService.getSocial().subscribe(
                 data => {
                     resolve(data);
-                    this.loading.dismiss();
                 },
                 err => {}
             );

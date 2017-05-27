@@ -19,3 +19,23 @@ img {
 	width: 100%;
 	height: auto;
 }
+
+//structure.scss
+scroll-content {
+  // existing css
+    &:before,
+    &:after {
+      content: '';
+      height: 1px;
+      position: absolute;
+      width: 1px;
+    }
+
+    &:before {
+      bottom: -1px;
+    }
+
+    &:after {
+      top: -1px;
+    }
+}

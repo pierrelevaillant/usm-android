@@ -9,29 +9,34 @@ import { SinglePostPage } from '../single-post/single-post';
 
 @Component({
 	selector: 'page-home',
-	templateUrl: 'home.html',
-	providers: [USMService]
+	templateUrl: 'home.html'
 })
 export class HomePage {
     items: any;
 	current_page: number = 1;
 	loading: any;
 
-	constructor(public modalCtrl: ModalController, private loadingCtrl: LoadingController, public navCtrl: NavController, private http: Http, private nav: NavController, private USMService: USMService ) {}
+	constructor(
+		private modalCtrl: ModalController,
+		private loadingCtrl: LoadingController,
+		private nav: NavController,
+		private http: Http,
+		private USMService: USMService 
+	) {}
 
     ionViewDidLoad() {
+    	this.presentLoadingDefault();
         this.loadPosts(this.current_page).then( data => {
 			this.items = data;
+			this.loading.dismiss();
 		});
     }
 
     loadPosts( current_page ) {
-    	this.presentLoadingDefault();
 		return new Promise(resolve => {
 			this.USMService.getPosts(current_page).subscribe(
                 data => {
                     resolve(data.data);
-                    this.loading.dismiss();
                 },
                 err => {}
             );
@@ -64,6 +69,7 @@ export class HomePage {
 	}
 
 	doRefresh(refresher) {
+		this.current_page = 1;
 		this.loadPosts(this.current_page).then( data => {
 			this.items = data;
 			refresher.complete();

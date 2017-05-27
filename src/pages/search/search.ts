@@ -8,9 +8,8 @@ import { SinglePostPage } from '../single-post/single-post';
 
 @IonicPage()
 @Component({
-  selector: 'page-search',
-  templateUrl: 'search.html',
-  providers: [USMService]
+    selector: 'page-search',
+    templateUrl: 'search.html'
 })
 export class SearchPage {
     items: any;
@@ -18,9 +17,9 @@ export class SearchPage {
 	searchQuery: '';
 
 	constructor(
-        public nav: NavController,
+        private nav: NavController,
         private http: Http,
-        public viewCtrl: ViewController,
+        private viewCtrl: ViewController,
         private USMService: USMService
     ) {}
 

@@ -9,29 +9,33 @@ import { SingleGalleryPage } from '../single-gallery/single-gallery';
 @IonicPage()
 @Component({
   selector: 'page-medias',
-  templateUrl: 'medias.html',
-  providers: [USMService]
+  templateUrl: 'medias.html'
 })
 export class MediasPage {
     items: any;
 	current_page: number = 1;
 	loading: any;
 
-	constructor(public nav: NavController, private http: Http, private USMService: USMService, private loadingCtrl: LoadingController) {}
+	constructor(
+		private nav: NavController,
+		private http: Http,
+		private USMService: USMService,
+		private loadingCtrl: LoadingController
+	) {}
 
     ionViewDidLoad() {
+    	this.presentLoadingDefault();
         this.loadPosts( this.current_page ).then( data => {
 			this.items = data;
+            this.loading.dismiss();
 		});
     }
 
     loadPosts( current_page ) {
-    	this.presentLoadingDefault();
 		return new Promise(resolve => {
 			this.USMService.getGalleries(current_page).subscribe(
                 data => {
                     resolve(data.data);
-                    this.loading.dismiss();
                 },
                 err => {}
             );
@@ -47,6 +51,7 @@ export class MediasPage {
 	}
 
 	doRefresh(refresher) {
+		this.current_page = 1;
 		this.loadPosts(this.current_page).then( data => {
 			this.items = data;
 			refresher.complete();

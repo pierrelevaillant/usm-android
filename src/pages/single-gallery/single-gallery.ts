@@ -7,14 +7,18 @@ import 'rxjs/add/operator/map';
 @IonicPage()
 @Component({
   selector: 'page-single-gallery',
-  templateUrl: 'single-gallery.html',
-  providers: [USMService]
+  templateUrl: 'single-gallery.html'
 })
 export class SingleGalleryPage {
   	gallery: any;
   	galleryData: any;
 
-  	constructor(public navCtrl: NavController, private http: Http, private USMService: USMService, public navParams: NavParams) {}
+  	constructor(
+  		private navCtrl: NavController,
+  		private navParams: NavParams,
+  		private http: Http,
+  		private USMService: USMService,
+  	) {}
 
   	ionViewDidLoad() {
 		this.gallery = this.navParams.get('gallery');
