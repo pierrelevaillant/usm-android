@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ActionSheetController} from 'ionic-angular';
+import { IonicPage, NavController, ActionSheetController} from 'ionic-angular';
 import { USMService } from '../../services/USMService';
 
 
@@ -19,7 +19,6 @@ export class TeamsPage {
 
 	constructor(
 		private navCtrl: NavController,
-		private navParams: NavParams,
 		private actionSheetCtrl: ActionSheetController,
 		private USMService: USMService
 	){}

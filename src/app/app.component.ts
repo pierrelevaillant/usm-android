@@ -51,6 +51,10 @@ export class MyApp {
 		this.oneSignal.handleNotificationOpened().subscribe( data => {
 		  	// do something when a notification is opened
             let option = data.notification.payload.additionalData.data;
+            
+            // Retrieve notification data
+            // - POST (Post / Gallery)
+            // - TAB
             if (option.post) {
                 this.USMService.getPost(option.post).subscribe(
                     data => {
@@ -60,6 +64,8 @@ export class MyApp {
                     },
                     err => {}
                 );
+            } else if (option.tab) {
+                this.navCtrl.setRoot(TabsPage,{tab: option.tab});
             }
 		});
 		this.oneSignal.endInit();
