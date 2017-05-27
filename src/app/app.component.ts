@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Platform, ModalController } from 'ionic-angular';
+import { Platform, ModalController, App, NavController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { OneSignal } from '@ionic-native/onesignal';
@@ -17,6 +17,7 @@ export class MyApp {
 
     constructor(
         private platform: Platform,
+        private app: App,
         private modalCtrl: ModalController,
         private statusBar: StatusBar,
         private splashScreen: SplashScreen,
@@ -36,6 +37,9 @@ export class MyApp {
       	});
     }
 
+    get navCtrl(): NavController {
+        return this.app.getRootNav();
+    }
 
     private oneSignalInit() {
     	this.oneSignal.startInit('264b01aa-4f59-4cdc-bcd4-0e5293925e2d', '379011050678');
@@ -50,10 +54,9 @@ export class MyApp {
             if (option.post) {
                 this.USMService.getPost(option.post).subscribe(
                     data => {
-                        let modal = this.modalCtrl.create(SinglePostPage, {
+                        this.navCtrl.push(SinglePostPage, {
                             post: data
                         });
-                        modal.present();
                     },
                     err => {}
                 );
