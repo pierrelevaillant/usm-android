@@ -10,7 +10,7 @@
   <ion-grid>
    <ion-row>
       <ion-col col-4 ion-item *ngFor="let post of galleryData" (click)="showGallery($event, post)">
-    	<img [src]="post.sizes.thumbnail.source_url"/>
+    	<img [lazyLoad]="post.sizes.thumbnail.source_url"/>
     </ion-col>
     </ion-row>
   </ion-grid>

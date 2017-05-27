@@ -13,7 +13,7 @@
   <ion-list>
     <button ion-item *ngFor="let post of items" (click)="itemTapped($event, post)">
       <div class="singleGallery__thumbnail">
-        <img *ngIf="post.featured_media" [src]="post.featured_media.sizes.slide.source_url"/>
+        <img *ngIf="post.featured_media" [lazyLoad]="post.featured_media.sizes.slide.source_url"/>
       </div>
       <div class="singleGallery__content">
         <h2 [innerHTML]="post.title.rendered"></h2>
