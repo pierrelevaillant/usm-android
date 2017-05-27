@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { NavParams } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { TeamsPage } from '../teams/teams';
 import { LivePage } from '../live/live';
@@ -15,7 +15,11 @@ export class TabsPage {
   	tab3Root = MediasPage;
   	tab4Root = LivePage;
 
-  	constructor() {
-	
+  	activeTab: any;
+
+  	constructor(
+  		private navParams: NavParams
+  	){
+	    this.activeTab = navParams.get("tab")? navParams.get("tab") : 0;
   	}
 }
