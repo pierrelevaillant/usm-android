@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
+import { MomentModule } from 'angular2-moment';
 
 import { USMService } from '../services/USMService';
 
@@ -36,6 +37,7 @@ import {OneSignal} from '@ionic-native/onesignal';
   ],
   imports: [
     BrowserModule,
+    MomentModule,
     HttpModule,
     IonicModule.forRoot(MyApp)
   ],

@@ -18,7 +18,7 @@
       <div class="singleGallery__content">
         <h2 [innerHTML]="post.title.rendered"></h2>
         <small class="singleGallery__category" [innerHTML]="post.gallery_count + ' photos'"></small>
-        <small class="singleGallery__date" [innerHTML]="post.date"></small>
+        <small class="singleGallery__date" [innerHTML]="post.date | amCalendar:{lastWeek:'DD/MM/YYYY'}"></small>
       </div>
     </button>
   </ion-list>

@@ -9,6 +9,8 @@ import { USMService } from '../services/USMService';
 import { TabsPage } from '../pages/tabs/tabs';
 import { SinglePostPage } from '../pages/single-post/single-post';
 
+import moment from 'moment';
+
 @Component({
     templateUrl: 'app.html'
 })
@@ -29,6 +31,8 @@ export class MyApp {
         	// Here you can do any higher level native things you might need.
         	statusBar.styleDefault();
         	splashScreen.hide();
+
+            moment.locale('fr');
 
         	// Init Cordova plugins
         	if (this.platform.is('cordova')) {
