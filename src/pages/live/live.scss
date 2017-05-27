@@ -1,6 +1,9 @@
 page-live {
 	ion-label {
-		white-space: normal;
+		div:nth-child(2) {
+			white-space: pre-line;
+		}
+		
 
 		ion-avatar, h2 {
 			display: inline-block;
