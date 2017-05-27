@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Platform } from 'ionic-angular';
+import { Platform, ModalController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { OneSignal } from '@ionic-native/onesignal';
@@ -7,6 +7,7 @@ import { OneSignal } from '@ionic-native/onesignal';
 import { USMService } from '../services/USMService';
 
 import { TabsPage } from '../pages/tabs/tabs';
+import { SinglePostPage } from '../pages/single-post/single-post';
 
 @Component({
     templateUrl: 'app.html'
@@ -16,6 +17,7 @@ export class MyApp {
 
     constructor(
         private platform: Platform,
+        private modalCtrl: ModalController,
         private statusBar: StatusBar,
         private splashScreen: SplashScreen,
         private oneSignal: OneSignal,
@@ -48,7 +50,10 @@ export class MyApp {
             if (option.post) {
                 this.USMService.getPost(option.post).subscribe(
                     data => {
-                        alert(data.title.rendered);
+                        let modal = this.modalCtrl.create(SinglePostPage, {
+                            post: data
+                        });
+                        modal.present();
                     },
                     err => {}
                 );
