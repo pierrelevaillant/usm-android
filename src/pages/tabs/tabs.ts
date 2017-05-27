@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NavParams } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { NavParams, Tabs } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { TeamsPage } from '../teams/teams';
 import { LivePage } from '../live/live';
@@ -9,6 +9,7 @@ import { MediasPage } from '../medias/medias';
   	templateUrl: 'tabs.html'
 })
 export class TabsPage {
+	@ViewChild('pageTabs') tabRef: Tabs;
 
   	tab1Root = HomePage;
   	tab2Root = TeamsPage;
@@ -21,5 +22,13 @@ export class TabsPage {
   		private navParams: NavParams
   	){
 	    this.activeTab = navParams.get("tab")? navParams.get("tab") : 0;
+  	}
+
+  	ionViewDidLoad() {
+  		//
+  	}
+
+  	tabsChange(e) {
+  		this.activeTab = this.tabRef.getSelected().index;
   	}
 }

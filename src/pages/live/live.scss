@@ -1,4 +1,16 @@
 page-live {
+	ion-label {
+		div.live__item__content {
+			white-space: pre-line;
+		}
+		
+
+		ion-avatar, h2 {
+			display: inline-block;
+    		vertical-align: middle;
+		}
+	}
+
 	.live {
 
 		&__item {
@@ -8,7 +20,12 @@ page-live {
 			}
 
 			header {
-				margin-bottom: 15px;
+				margin-bottom: 10px;
+			}
+
+			img {
+				margin-bottom: 10px;
+				border-radius: 3px;
 			}
 
 			&__content {
@@ -43,17 +60,5 @@ page-live {
 
 	.item-md ion-avatar[item-left], .item-md ion-thumbnail[item-left], .item-md ion-avatar[item-start], .item-md ion-thumbnail[item-start] {
 		margin: 0 10px 0 0;
-	}
-
-	ion-label {
-		div:nth-child(2) {
-			white-space: pre-line;
-		}
-		
-
-		ion-avatar, h2 {
-			display: inline-block;
-    		vertical-align: middle;
-		}
 	}
 }
