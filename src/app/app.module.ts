@@ -16,10 +16,12 @@ import { SinglePostPage } from '../pages/single-post/single-post';
 import { SingleGalleryPage } from '../pages/single-gallery/single-gallery';
 import { TabsPage } from '../pages/tabs/tabs';
 
+// Cordova plugins
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { IonicStorageModule } from '@ionic/storage';
 
 import {OneSignal} from '@ionic-native/onesignal';
 
@@ -39,7 +41,8 @@ import {OneSignal} from '@ionic-native/onesignal';
     BrowserModule,
     MomentModule,
     HttpModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [

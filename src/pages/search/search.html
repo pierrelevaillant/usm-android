@@ -11,11 +11,11 @@
     </ion-toolbar>
 
     <ion-toolbar>
-      <ion-searchbar
+      <ion-searchbar #searchBar
         [(ngModel)]="searchQuery"
         [showCancelButton]="shouldShowCancel"
         (ionInput)="onInput($event)"
-        (ionCancel)="onCancel($event)">
+        (ionCancel)="onCancel($event)" placeholder="Tapez un ou des mots-clés">
       </ion-searchbar>
     </ion-toolbar>
 
@@ -23,7 +23,15 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
+
+  
+  <ion-list *ngIf="!items"> 
+    <button ion-item *ngFor="let post of searchHistory" (click)="historyTapped($event, post)">
+      <h2 [innerHTML]="post.title"></h2>
+    </button>
+  </ion-list>
+
+  <ion-list> 
     <button ion-item *ngFor="let post of items" (click)="postTapped($event, post)">
     <img *ngIf="post.featured_media" [src]="post.featured_media.sizes.slide.source_url"/>
       <h2 [innerHTML]="post.title.rendered"></h2>
