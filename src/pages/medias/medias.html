@@ -4,7 +4,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="singleGallery">
   
   <ion-refresher (ionRefresh)="doRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
@@ -12,10 +12,14 @@
 
   <ion-list>
     <button ion-item *ngFor="let post of items" (click)="itemTapped($event, post)">
-    <img *ngIf="post.featured_media" [src]="post.featured_media.sizes.slide.source_url"/>
-      <h2 [innerHTML]="post.title.rendered"></h2>
-      <small style="color:red;margin-right: 10px" [innerHTML]="post.categories[0].name"></small>
-      <small [innerHTML]="post.date"></small>
+      <div class="singleGallery__thumbnail">
+        <img *ngIf="post.featured_media" [src]="post.featured_media.sizes.slide.source_url"/>
+      </div>
+      <div class="singleGallery__content">
+        <h2 [innerHTML]="post.title.rendered"></h2>
+        <small class="singleGallery__category" [innerHTML]="post.gallery_count + ' photos'"></small>
+        <small class="singleGallery__date" [innerHTML]="post.date"></small>
+      </div>
     </button>
   </ion-list>
 

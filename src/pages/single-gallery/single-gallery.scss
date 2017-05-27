@@ -1,5 +1,34 @@
 page-single-gallery {
 
+	.bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
+	    color: white;
+	}
+
+	.bar-button-default-md:hover:not(.disable-hover), .bar-button-clear-md-default:hover:not(.disable-hover), .bar-button-md-default:hover:not(.disable-hover) {
+		color: white;
+	}
+
+	.toolbar {
+		&-background-md {
+			border-color: #b2b2b2;
+			color: white;
+			background: #222529;
+		}
+
+		&-title-md {
+			color: white;
+		}
+	}
+
+	.content-md {
+		background: #171819;
+		color: white;
+	}
+
+	.item-md {
+		background: #171819;
+	}
+
 	.item-md.item-block {
 		padding-left: 1px;
 
@@ -14,7 +43,6 @@ page-single-gallery {
 					margin: 0
 				}
 			}
-
 			
 		}
 	}
