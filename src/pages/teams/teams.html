@@ -10,9 +10,21 @@
     <ion-title>Équipe</ion-title>
   </ion-navbar>
 
+   <ion-toolbar no-border-top>
+    <ion-segment *ngIf="teams" [(ngModel)]="teamsSegment" (ionChange)="segmentChanged($event)">
+      <ion-segment-button *ngFor="let team of teams" value="{{team.id}}">
+        {{team.name}}
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+
 </ion-header>
 
 
 <ion-content padding>
+
+  <ion-list>
+    <ion-match *ngFor="let match of teamSeason" [match]="match"></ion-match>
+  </ion-list>
 
 </ion-content>

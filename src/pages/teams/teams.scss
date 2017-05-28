@@ -1,3 +1,27 @@
 page-teams {
+	ion-toolbar {
+		overflow-x: scroll !important;
+		background-color: #154EBB;
+	}
 
+	ion-segment {
+		display: block;
+		flex: inherit !important;
+
+		.segment-button {
+			display: inline;
+			flex: inherit !important;
+			width: auto !important;
+			padding: 0 10px 10px !important;
+		}
+	}
+
+	.segment-md .segment-button.activated, .segment-md .segment-button.segment-activated {
+		border-color: white;
+	}
+
+
+	.segment-md .segment-button {
+		color: white;
+	}
 }

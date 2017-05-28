@@ -16,6 +16,8 @@ import { USMService } from '../../services/USMService';
 })
 export class TeamsPage {
 	teams: any;
+	teamSeason: any;
+	teamsSegment: number = 1;
 
 	constructor(
 		private navCtrl: NavController,
@@ -27,7 +29,10 @@ export class TeamsPage {
 	    // Get teams
 	    this.getTeams().then( data => {
 	     	this.teams = data;
-	     	//this.presentActionSheet();
+
+	     	this.getSeason(data[0].id).then( data => {
+		     	this.teamSeason = data;
+			});
 		});
   	}
 
@@ -43,24 +48,22 @@ export class TeamsPage {
 		});
 	}
 
-	presentActionSheet() {
-		let opt = {
-			title: 'Selectionnez une équipe',
-			buttons: []
-		};
-	
-		for (var i = 0; i < this.teams['length']; ++i) {
-			opt.buttons.push({
-				text: this.teams[i].name,
-				handler: () => {
-					console.log(this.teams[i].name + ' clicked');
-				}
-			})
-		};
-	
-	
-		let actionSheet = this.actionSheetCtrl.create(opt);
-		actionSheet.present();
+	// Functions
+	getSeason(id) {
+		return new Promise(resolve => {
+			this.USMService.getSeason(id).subscribe(
+                data => {
+                    resolve(data.data); 
+                },
+                err => {}
+            );
+		});
+	}
+
+	segmentChanged(e) {
+		this.getSeason(e._value).then( data => {
+	     	this.teamSeason = data;
+		});
 	}
 
 }
