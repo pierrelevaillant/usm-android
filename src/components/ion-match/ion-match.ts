@@ -12,6 +12,7 @@ import { Component, Input } from '@angular/core';
 })
 export class IonMatch {
 	@Input() match: any;
+	@Input() recap: boolean = false;
 
   	constructor() {
   		//

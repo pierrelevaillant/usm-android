@@ -15,6 +15,7 @@ import { LivePage } from '../pages/live/live';
 import { MediasPage } from '../pages/medias/medias';
 import { SinglePostPage } from '../pages/single-post/single-post';
 import { SingleGalleryPage } from '../pages/single-gallery/single-gallery';
+import { PopSeasonsPage } from '../pages/pop-seasons/pop-seasons';
 import { TabsPage } from '../pages/tabs/tabs';
 
 // Cordova plugins
@@ -38,6 +39,7 @@ import { IonMatch } from '../components/ion-match/ion-match';
     MediasPage,
     SinglePostPage,
     SingleGalleryPage,
+    PopSeasonsPage,
     IonMatch
   ],
   imports: [
@@ -58,6 +60,7 @@ import { IonMatch } from '../components/ion-match/ion-match';
     TabsPage,
     MediasPage,
     SinglePostPage,
+    PopSeasonsPage,
     SingleGalleryPage
   ],
   providers: [

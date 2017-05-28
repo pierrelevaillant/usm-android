@@ -4,11 +4,23 @@ ion-match {
 	text-align: center;
 	width: 100%;
 
+	h4 {
+		color: $grey;
+		font-size: 75%;
+		text-transform: uppercase;
+
+		img {
+			width: 22px;
+			vertical-align: middle;
+		}
+	}
+
 	.teams__content {
 
 		& > * {
 			display: inline-block;
 			vertical-align: middle;
+			margin-right: -3px;
 		}
 
 		&.won {
@@ -24,11 +36,15 @@ ion-match {
 		}
 
 		span {
+			width: 20%;
 			font-weight: 900;
-			font-size: 25px;
+			font-size: 40px;
+    		letter-spacing: -3px;
 		}
 
 		&__wrapper {
+			width: 40%;
+
 			img {
 				max-height: 50px;
 				width: auto;
