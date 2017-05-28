@@ -1,0 +1,39 @@
+ion-match {
+
+	background-color: white;
+	text-align: center;
+	width: 100%;
+
+	.teams__content {
+
+		& > * {
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		&.won {
+			span {
+				color: green;
+			}
+		}
+
+		span {
+			font-weight: 900;
+			font-size: 25px;
+		}
+
+		&__wrapper {
+			img {
+				max-height: 50px;
+				width: auto;
+			}
+
+			h3 {
+				margin: 0;
+				font-size: 16px;
+			}
+		}
+
+	}
+
+}

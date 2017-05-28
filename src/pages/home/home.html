@@ -16,6 +16,13 @@
   </ion-refresher>
 
   <ion-list>
+    
+    <ion-slides pager>
+      <ion-slide *ngFor="let match of matchs">
+        <ion-match [match]="match"></ion-match>
+      </ion-slide>
+    </ion-slides>
+
     <button class="home__item" ion-item *ngFor="let post of items" (click)="itemTapped($event, post)">
     <img *ngIf="post.featured_media" [lazyLoad]="post.featured_media.sizes.slide.source_url"/>
       <div class="home__item__content">

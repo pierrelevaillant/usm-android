@@ -13,6 +13,7 @@ import { SinglePostPage } from '../single-post/single-post';
 })
 export class HomePage {
     items: any;
+    matchs: any;
 	current_page: number = 1;
 	loading: any;
 
@@ -26,15 +27,33 @@ export class HomePage {
 
     ionViewDidLoad() {
     	this.presentLoadingDefault();
+        
+        // Get posts
         this.loadPosts(this.current_page).then( data => {
 			this.items = data;
 			this.loading.dismiss();
+		});
+
+        // Get team A recap
+        this.getRecap().then( data => {
+			this.matchs = data;
 		});
     }
 
     loadPosts( current_page ) {
 		return new Promise(resolve => {
 			this.USMService.getPosts(current_page).subscribe(
+                data => {
+                    resolve(data.data);
+                },
+                err => {}
+            );
+		});
+	}
+
+    getRecap() {
+		return new Promise(resolve => {
+			this.USMService.getRecap(1).subscribe(
                 data => {
                     resolve(data.data);
                 },

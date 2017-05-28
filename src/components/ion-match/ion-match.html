@@ -1,0 +1,19 @@
+<!-- Generated template for the IonMatchComponent component -->
+<div>
+	<h4>{{ match.title }}</h4>
+  	<div class="teams__content" [ngClass]="{'won' : (match.result == 'GA'), 'loose' : (match.result == 'PE')}">
+  		
+  		<div class="teams__content__wrapper">
+  			<img [lazyLoad]="match.home_team.club.logo_url" alt="Logo équipe domicile">
+			<h3>{{ match.home_team.club.name }}</h3>
+  		</div>
+		
+		<span>{{ match.home_score }} - {{ match.away_score }}</span>
+		
+		<div class="teams__content__wrapper">
+  			<img [lazyLoad]="match.away_team.club.logo_url" alt="Logo équipe extérieure">
+			<h3>{{ match.away_team.club.name }}</h3>
+  		</div>
+
+  	</div>
+</div>

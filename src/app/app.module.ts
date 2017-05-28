@@ -25,6 +25,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { IonicStorageModule } from '@ionic/storage';
 
 import {OneSignal} from '@ionic-native/onesignal';
+import { IonMatch } from '../components/ion-match/ion-match';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import {OneSignal} from '@ionic-native/onesignal';
     TabsPage,
     MediasPage,
     SinglePostPage,
-    SingleGalleryPage
+    SingleGalleryPage,
+    IonMatch
   ],
   imports: [
     BrowserModule,
