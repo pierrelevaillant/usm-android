@@ -1,4 +1,11 @@
 page-teams {
+	.has-refresher > .scroll-content {
+		border-top: none;
+	}
+
+	.content-md {
+		background: $light-blue;
+	}
 	.scroll-content {
 		padding: 20px 0 !important;
 	}

@@ -1,7 +1,8 @@
-<!-- Generated template for the IonMatchComponent component -->
-<div>
-	<h4 *ngIf="recap">{{ match.title }}</h4>
-	<h4 *ngIf="!recap">{{ match.competition.name }}</h4>
+<div class="game__item">
+	<div class="game__item__meta competition">
+  <span *ngIf="recap">{{ match.title }}</span>
+	<span *ngIf="!recap">{{ match.competition.name }}</span>
+  </div>
   	
   	<div class="teams__content" [ngClass]="{'won' : (match.result == 'GA'), 'loose' : (match.result == 'PE')}">
   		
@@ -18,8 +19,9 @@
   		</div>
 
   	</div>
-  	
-  	<h4 *ngIf="recap">{{ match.competition.name }} — {{ match.date | amCalendar:{lastWeek:'DD/MM/YYYY'} }}</h4>
-  	<h4 *ngIf="!recap && match.weather_temp">{{ match.date | amCalendar:{lastWeek:'DD/MM/YYYY'} }} — {{ match.weather_temp }}° {{ match.weather_phrase }} <img [src]="'https://api-beta.usmontagnarde.fr/weather/icon/'+match.weather_icon+'?color=%23B1B1B1'" alt=""></h4>  	
-  	<h4 *ngIf="!recap && !match.weather_temp">{{ match.date | amCalendar:{lastWeek:'DD/MM/YYYY'} }}</h4>
+  	<div class="game__item__meta date">
+  	<span *ngIf="recap">{{ match.competition.name }} — {{ match.date | amCalendar:{lastWeek:'DD/MM/YYYY'} }}</span>
+  	<span *ngIf="!recap && match.weather_temp">{{ match.date | amCalendar:{lastWeek:'DD/MM/YYYY'} }} — {{ match.weather_temp }}° {{ match.weather_phrase }} <img [src]="'https://api-beta.usmontagnarde.fr/weather/icon/'+match.weather_icon+'?color=%23B1B1B1'" alt=""></span>  	
+  	<span *ngIf="!recap && !match.weather_temp">{{ match.date | amCalendar:{lastWeek:'DD/MM/YYYY'} }}</span>
+    </div>
 </div>
