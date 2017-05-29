@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, Output, EventEmitter } from '@angular/core';
+import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 
 /**
  * Generated class for the PopSeasonsPage page.
@@ -15,20 +15,27 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class PopSeasonsPage {
 
 	seasons: any;
+    currentSeason: string;
 
   	constructor(
   		public navCtrl: NavController,
-  		public navParams: NavParams,
+        public navParams: NavParams,
+  		public viewCtrl: ViewController,
   	) {}
 
   	ngOnInit() {
 		if (this.navParams.data) {
-			this.seasons = this.navParams.data.seasons;
+            this.seasons = this.navParams.data.seasons;
+			this.currentSeason = String(this.navParams.data.currentSeason);
 		}
 	}
 
   	ionViewDidLoad() {
   		//
   	}
+
+    seasonChanged() {
+        this.viewCtrl.dismiss(parseInt(this.currentSeason));
+    }
 
 }

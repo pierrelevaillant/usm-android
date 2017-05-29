@@ -16,7 +16,7 @@
   </ion-navbar>
 
    <ion-toolbar no-border-top>
-    <ion-segment *ngIf="teams" [(ngModel)]="teamsSegment" (ionChange)="segmentChanged($event)">
+    <ion-segment *ngIf="teams" [(ngModel)]="segment" (ionChange)="segmentChanged($event)">
       <ion-segment-button *ngFor="let team of teams" value="{{team.id}}">
         {{team.name}}
       </ion-segment-button>

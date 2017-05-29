@@ -84,8 +84,8 @@ export class USMService {
     }
 
     // Get season
-    getSeason(id) {
-        let url = this.api_host + this.api_version + 'teams/' + id + '/season';
+    getSeason(id, season = null) {
+        let url = this.api_host + this.api_version + 'teams/' + id + '/season?season=' + (season ? season : '');
         return this.request(url);
     }
 

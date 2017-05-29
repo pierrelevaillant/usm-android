@@ -19,7 +19,9 @@ export class TeamsPage {
 	seasons: any;
 	teams: any;
 	teamSeason: any;
-	teamsSegment: number;
+	currentTeam: number;
+	currentSeason: number;
+	segment: string;
 
 	constructor(
 		private navCtrl: NavController,
@@ -29,18 +31,21 @@ export class TeamsPage {
 	){}
 
   	ionViewDidLoad() {
-	    // Get teams
-	    this.getTeams().then( data => {
-	     	this.teams = data;
-	     	this.teamsSegment = data[0].id;
-
-	     	this.getSeason(data[0].id).then( data => {
-		     	this.teamSeason = data;
-			});
-		});
 
 		this.getSeasons().then( data => {
 	     	this.seasons = data;
+	     	this.currentSeason = data[data['length'] - 1].season;
+
+	     	// Get teams
+		    this.getTeams().then( data => {
+		     	this.teams = data;
+		     	this.segment = String(data[0].id);
+		     	this.currentTeam = data[0].id;
+
+		     	this.getSeason(data[0].id, this.currentSeason).then( data => {
+			     	this.teamSeason = data;
+				});
+			});
 		});
 	}
 
@@ -57,9 +62,9 @@ export class TeamsPage {
 	}
 
 	// Functions
-	getSeason(id) {
+	getSeason(id, season) {
 		return new Promise(resolve => {
-			this.USMService.getSeason(id).subscribe(
+			this.USMService.getSeason(id, season).subscribe(
                 data => {
                     resolve(data.data); 
                 },
@@ -81,18 +86,30 @@ export class TeamsPage {
 	}
 
 	segmentChanged(e) {
-		this.getSeason(e._value).then( data => {
+		this.currentTeam = parseInt(e._value);
+		this.getSeason(this.currentTeam, this.currentSeason).then( data => {
+	     	this.teamSeason = data;
+		});
+	}
+
+	seasonchanged() {
+		this.getSeason(this.currentTeam, this.currentSeason).then( data => {
 	     	this.teamSeason = data;
 		});
 	}
 
 	seasonsPopover(e) {
 		let popover = this.popoverCtrl.create(PopSeasonsPage,{
-			seasons: this.seasons
+			seasons: this.seasons,
+			currentSeason: this.currentSeason
 		});
     	popover.present({
 	      ev: e
 	    })
+	    popover.onDidDismiss(season => {
+	    	this.currentSeason = season;
+	    	this.seasonchanged();
+   		});
 	}
 
 }
