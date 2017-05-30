@@ -18,6 +18,8 @@ import { SinglePostPage } from '../pages/single-post/single-post';
 import { SingleGalleryPage } from '../pages/single-gallery/single-gallery';
 import { PopSeasonsPage } from '../pages/pop-seasons/pop-seasons';
 import { TabsPage } from '../pages/tabs/tabs';
+import { GalleryModal } from 'ionic-gallery-modal';
+import { ZoomableImage } from 'ionic-gallery-modal';
 
 // Cordova plugins
 import { StatusBar } from '@ionic-native/status-bar';
@@ -25,6 +27,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { IonicStorageModule } from '@ionic/storage';
+
 
 import {OneSignal} from '@ionic-native/onesignal';
 import { IonMatch } from '../components/ion-match/ion-match';
@@ -41,7 +44,9 @@ import { IonMatch } from '../components/ion-match/ion-match';
     SinglePostPage,
     SingleGalleryPage,
     PopSeasonsPage,
-    IonMatch
+    IonMatch,
+    GalleryModal,
+    ZoomableImage,
   ],
   imports: [
     BrowserModule,
@@ -62,7 +67,8 @@ import { IonMatch } from '../components/ion-match/ion-match';
     MediasPage,
     SinglePostPage,
     PopSeasonsPage,
-    SingleGalleryPage
+    SingleGalleryPage,
+    GalleryModal
   ],
   providers: [
     USMService,

@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { Http } from '@angular/http';
 import { USMService } from '../../services/USMService';
 import 'rxjs/add/operator/map';
+import { GalleryModal } from 'ionic-gallery-modal';
 
 @IonicPage()
 @Component({
@@ -11,6 +12,7 @@ import 'rxjs/add/operator/map';
 })
 export class SingleGalleryPage {
   	gallery: any;
+  	galleryImgs: any[] = [];
   	galleryData: any;
 
   	constructor(
@@ -18,6 +20,7 @@ export class SingleGalleryPage {
   		private navParams: NavParams,
   		private http: Http,
   		private USMService: USMService,
+  		private modalCtrl: ModalController
   	) {}
 
   	ionViewDidLoad() {
@@ -25,6 +28,11 @@ export class SingleGalleryPage {
 
 		this.loadGallery( this.gallery.id ).then( data => {
 			this.galleryData = data;
+
+			for (var i = 0; i < data['length']; ++i) {
+				this.galleryImgs.push({ url:data[i].sizes.large.source_url});
+			}
+
 		});
   	}
 
@@ -40,6 +48,11 @@ export class SingleGalleryPage {
 	}
 
 	showGallery(post) {
-		//
+		console.log(this.galleryImgs);
+		let modal = this.modalCtrl.create(GalleryModal, {
+  			photos: this.galleryImgs,
+  			initialSlide: 0
+		});
+		modal.present();
 	}
 }
