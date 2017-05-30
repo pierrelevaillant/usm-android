@@ -7,6 +7,7 @@ import { MomentModule } from 'angular2-moment';
 import { LazyLoadImageModule } from 'ng2-lazyload-image';
 
 import { USMService } from '../services/USMService';
+import { Fabric } from '../services/Fabric';
 
 import { HomePage } from '../pages/home/home';
 import { TeamsPage } from '../pages/teams/teams';
@@ -65,6 +66,7 @@ import { IonMatch } from '../components/ion-match/ion-match';
   ],
   providers: [
     USMService,
+    Fabric,
     StatusBar,
     InAppBrowser,
     SplashScreen,

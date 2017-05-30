@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SocialSharing } from '@ionic-native/social-sharing';
+
 import { USMService } from '../../services/USMService';
+import { Fabric } from '../../services/Fabric';
 
 @IonicPage()
 @Component({
@@ -15,11 +17,15 @@ export class SinglePostPage {
   		private navCtrl: NavController,
   		private navParams: NavParams,
   		private socialSharing: SocialSharing,
-      private USMService: USMService
+      	private USMService: USMService,
+      	private Fabric: Fabric
   	) {}
 
 	ionViewDidLoad() {
 		this.post = this.navParams.get('post');
+
+	    // Send Fabric event
+	    this.Fabric.sendCustomEvent('Article', this.post.title.rendered);
 	}
 
 	regularShare(){
@@ -27,22 +33,22 @@ export class SinglePostPage {
 		this.socialSharing.share(this.post.title.rendered, null, image, this.post.link); 
 	}
 
-  loadPost() {
-    return new Promise(resolve => {
-      this.USMService.getPost(this.post.id).subscribe(
+  	loadPost() {
+    	return new Promise(resolve => {
+      		this.USMService.getPost(this.post.id).subscribe(
                 data => {
                     resolve(data);
                 },
                 err => {}
             );
-      });
+      	});
     }
 
     doRefresh(refresher) {
-      this.loadPost().then( data => {
-        this.post = data;
-        refresher.complete();
-      });
+      	this.loadPost().then( data => {
+        	this.post = data;
+        	refresher.complete();
+      	});
     }
 
 }

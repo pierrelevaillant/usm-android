@@ -89,4 +89,8 @@
     <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
     <plugin name="onesignal-cordova-plugin" spec="^2.1.1" />
     <plugin name="cordova-sqlite-storage" spec="^2.0.4" />
+    <plugin name="cordova-fabric-plugin" spec="^1.1.7">
+        <variable name="FABRIC_API_KEY" value="7ad1713abfda7cb056c51c6fcb7d33b0a4bdefc6" />
+        <variable name="FABRIC_API_SECRET" value="35b73bc73210deaf655b0f98c9dfb1f59de72a477afe8e81ad2b6aecc9576173" />
+    </plugin>
 </widget>

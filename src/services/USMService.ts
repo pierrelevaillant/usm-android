@@ -10,9 +10,9 @@ export class USMService {
         return [[Http]];
     }
   
-    constructor(private http:Http) {
-         
-    }
+    constructor(
+        private http:Http
+    ) {}
 
     // Request API REST
     // with correct headers data

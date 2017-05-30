@@ -6,6 +6,7 @@ import 'rxjs/add/operator/map';
 
 import { SearchPage } from '../search/search';
 import { SinglePostPage } from '../single-post/single-post';
+import { SingleGalleryPage } from '../single-gallery/single-gallery';
 
 @Component({
 	selector: 'page-home',
@@ -96,9 +97,15 @@ export class HomePage {
 	}
 
 	itemTapped(event, post) {
-		this.nav.push(SinglePostPage, {
-			post: post
-		});
+		if (post.type == 'post') {
+			this.nav.push(SinglePostPage, {
+				post: post
+			});
+		} else if (post.type == 'gallery') {
+			this.nav.push(SingleGalleryPage, {
+				gallery: post
+			});
+		}
 	}
 
 	openSearchPage() {
