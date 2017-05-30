@@ -2,8 +2,10 @@ import { Component } from '@angular/core';
 import { IonicPage, LoadingController } from 'ionic-angular';
 import { Http } from '@angular/http';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
-import { USMService } from '../../services/USMService';
 import 'rxjs/add/operator/map';
+
+import { USMService } from '../../services/USMService';
+import { Fabric } from '../../services/Fabric';
 
 @IonicPage()
 @Component({
@@ -18,7 +20,8 @@ export class LivePage {
 		private iab: InAppBrowser,
 		private loadingCtrl: LoadingController,
 		private http: Http,
-		private USMService: USMService
+		private USMService: USMService,
+		private Fabric: Fabric
 	) {}
 
     ionViewDidLoad() {
@@ -27,6 +30,9 @@ export class LivePage {
 			this.social_items = data;
 			this.loading.dismiss();
 		});
+
+		// Send Fabric event
+		this.Fabric.sendCustomEvent('Live', null);
     }
 
     loadPosts() {

@@ -2,8 +2,10 @@ import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, ViewController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { Http } from '@angular/http';
-import { USMService } from '../../services/USMService';
 import 'rxjs/add/operator/map';
+
+import { USMService } from '../../services/USMService';
+import { Fabric } from '../../services/Fabric';
 
 import { SinglePostPage } from '../single-post/single-post';
 
@@ -26,7 +28,8 @@ export class SearchPage {
         private http: Http,
         private viewCtrl: ViewController,
         private storage: Storage,
-        private USMService: USMService
+        private USMService: USMService,
+        private Fabric: Fabric
     ) {}
 
     ionViewDidLoad() {
@@ -44,6 +47,9 @@ export class SearchPage {
     onInput(e) {
     	this.searchPosts(this.searchQuery).then( data => {
 			this.items = data['posts'];
+
+            // Send Fabric event
+            this.Fabric.sendCustomEvent('Search', {search: this.searchQuery});
 		});
     }
 
