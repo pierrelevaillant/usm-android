@@ -25,7 +25,7 @@ export class SinglePostPage {
 		this.post = this.navParams.get('post');
 
 	    // Send Fabric event
-	    this.Fabric.sendCustomEvent('Article', this.post.title.rendered);
+	    this.Fabric.sendCustomEvent('Article', ['Article', this.post.title.rendered]);
 	}
 
 	regularShare(){
