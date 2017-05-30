@@ -47,11 +47,10 @@ export class SingleGalleryPage {
 		});
 	}
 
-	showGallery(post) {
-		console.log(this.galleryImgs);
+	showGallery(post, i) {
 		let modal = this.modalCtrl.create(GalleryModal, {
   			photos: this.galleryImgs,
-  			initialSlide: 0
+  			initialSlide: i
 		});
 		modal.present();
 	}
