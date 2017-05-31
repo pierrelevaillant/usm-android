@@ -23,14 +23,7 @@
       </ion-slide>
     </ion-slides>
 
-    <button class="home__item" ion-item *ngFor="let post of items" (click)="itemTapped($event, post)">
-    <img *ngIf="post.featured_media" [lazyLoad]="post.featured_media.sizes.slide.source_url"/>
-      <div class="home__item__content">
-        <h2 [innerHTML]="post.title.rendered"></h2>
-        <small class="home__item__date" [innerHTML]="post.date | amCalendar:{lastWeek:'DD/MM/YYYY'}"></small>
-        <small class="home__item__category" [innerHTML]="post.categories[0].name"></small>
-      </div>
-    </button>
+    <ion-post *ngFor="let post of items" [post]="post" (click)="itemTapped($event, post)"></ion-post>
   </ion-list>
 
   <ion-infinite-scroll (ionInfinite)="loadMore($event)">

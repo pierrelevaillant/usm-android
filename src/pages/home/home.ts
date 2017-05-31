@@ -13,7 +13,7 @@ import { SingleGalleryPage } from '../single-gallery/single-gallery';
 	templateUrl: 'home.html'
 })
 export class HomePage {
-    items: any;
+    items: any = [];
     matchs: any;
 	current_page: number = 1;
 	loading: any;

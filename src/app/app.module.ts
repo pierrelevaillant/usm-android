@@ -31,6 +31,7 @@ import { IonicStorageModule } from '@ionic/storage';
 
 import {OneSignal} from '@ionic-native/onesignal';
 import { IonMatch } from '../components/ion-match/ion-match';
+import { IonPost} from '../components/ion-post/ion-post';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { IonMatch } from '../components/ion-match/ion-match';
     IonMatch,
     GalleryModal,
     ZoomableImage,
+    IonPost,
   ],
   imports: [
     BrowserModule,

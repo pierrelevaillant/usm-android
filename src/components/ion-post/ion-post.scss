@@ -1,0 +1,49 @@
+ion-post {
+	.home {
+
+		&__item {
+			margin-top: 15px;
+			box-shadow: 0 4px 5px 0 rgba(0,0,0,0.02), 0 1px 10px 0 rgba(0,0,0,0.02), 0 2px 4px -1px rgba(0,0,0,0.02);
+
+			h2 {
+				font-weight: 500;
+				margin-bottom: 10px;
+				margin: 0;
+			    margin-bottom: 3px;	
+			    white-space: normal;
+			}
+
+			img {
+				opacity: .98;
+			}
+
+			&__content {
+				padding: 12px 15px 15px 15px;
+			}
+
+			&__date {
+				color: $grey;
+				margin-right: 5px;
+			}
+
+			&__category {
+				color: $red;
+				font-weight: 500;
+			}
+		}
+	}
+
+
+	.label-md {
+	    margin: 0;
+	}
+
+	.item-md {
+		padding: 0;
+	}
+
+	.item-block .item-inner {
+		border: none !important;
+		padding-right: 0 !important;
+	}
+}

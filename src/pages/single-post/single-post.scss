@@ -3,6 +3,13 @@ page-single-post {
 		border-top: none;
 	}
 
+	.game__item {
+		padding-top: 0;
+		padding-bottom: 13px;
+		box-shadow: none;
+		border-bottom: 1px solid $medium-grey
+	}
+
 	.singlePost {
 		&__date {
 			color: $grey;

@@ -20,6 +20,14 @@
 
 		&.date {
 			margin-top: 5px;
+
+			span {
+				white-space: nowrap;
+			    max-width: 100%;
+			    text-overflow: ellipsis;
+			    overflow: hidden;
+			    display: block;
+			}
 		}
 
 		img {
