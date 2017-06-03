@@ -12,9 +12,10 @@ import { Fabric } from '../../services/Fabric';
 })
 export class SinglePostPage {
   	post: any;
+    relatedPosts: any = [];
 
   	constructor(
-  		private navCtrl: NavController,
+  		private nav: NavController,
   		private navParams: NavParams,
   		private socialSharing: SocialSharing,
       	private USMService: USMService,
@@ -23,6 +24,7 @@ export class SinglePostPage {
 
 	ionViewDidLoad() {
 		this.post = this.navParams.get('post');
+		this.loadRelatedPosts();
 
 	    // Send Fabric event
 	    this.Fabric.sendCustomEvent('Article', {article: this.post.title.rendered});
@@ -33,22 +35,21 @@ export class SinglePostPage {
 		this.socialSharing.share(this.post.title.rendered, null, image, this.post.link); 
 	}
 
-  	loadPost() {
-    	return new Promise(resolve => {
-      		this.USMService.getPost(this.post.id).subscribe(
+    loadRelatedPosts() {
+    	for (var i = 0; i < this.post.related_posts['length']; ++i) {
+	    	this.USMService.getPost(this.post.related_posts[i].id).subscribe(
                 data => {
-                    resolve(data);
+                    this.relatedPosts.push(data);
                 },
                 err => {}
             );
-      	});
+    	}
     }
 
-    doRefresh(refresher) {
-      	this.loadPost().then( data => {
-        	this.post = data;
-        	refresher.complete();
-      	});
-    }
+	itemTapped(event, post) {
+		this.nav.push(SinglePostPage, {
+			post: post
+		});
+	}
 
 }

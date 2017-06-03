@@ -2,9 +2,9 @@
 	<ion-navbar>
 	  <ion-toolbar>
 	    <ion-buttons start>
-	      <button ion-button icon-only (click)="regularShare()">
-	        <ion-icon name="share"></ion-icon>
-	      </button>
+	      	<button ion-button icon-only (click)="regularShare()">
+	        	<ion-icon name="share"></ion-icon>
+	      	</button>
 	    </ion-buttons>
 	    <ion-title *ngIf="post">{{post.categories[0].name}}</ion-title>
 	  </ion-toolbar>
@@ -12,10 +12,7 @@
 </ion-header>
 
 <ion-content class="singlePost">
-	<ion-refresher (ionRefresh)="doRefresh($event)">
-		<ion-refresher-content></ion-refresher-content>
-	</ion-refresher>
-	
+
 	<div *ngIf="post">
 		<img *ngIf="post.featured_media" [lazyLoad]="post.featured_media.sizes.medium.source_url" class="featured-image" />
 		<ion-match *ngIf="post.featured_match" [match]="post.featured_match"></ion-match>
@@ -26,5 +23,23 @@
 			<small class="singlePost__date" [innerHTML]="post.date | amCalendar:{lastWeek:'DD/MM/YYYY'}"></small>
 			<div [innerHTML]="post.content.rendered"></div>
 		</ion-card-content>
+		
+		<ion-card-content *ngIf="relatedPosts">
+			<h2>Articles similaires</h2>
+
+			<ion-list>
+				<button ion-item class="related__item" *ngFor="let post of relatedPosts" (click)="itemTapped($event, post)">
+					<div class="related__item__wrapper" *ngIf="post.featured_media" [ngStyle]="{'background-image': 'url(' + post.featured_media.sizes.slide.source_url + ')'}">
+					</div>
+					
+				  	<div class="related__item__content">
+				    	<h2 [innerHTML]="post.title.rendered"></h2>
+				    	<small class="related__item__date" [innerHTML]="post.date | amCalendar:{lastWeek:'DD/MM/YYYY'}"></small>
+				  	</div>
+				</button>
+			</ion-list>
+
+		</ion-card-content>
 	</div>
+
 </ion-content>
