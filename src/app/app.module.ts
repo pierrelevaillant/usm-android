@@ -9,17 +9,16 @@ import { LazyLoadImageModule } from 'ng2-lazyload-image';
 import { USMService } from '../services/USMService';
 import { Fabric } from '../services/Fabric';
 
-import { HomePage } from '../pages/home/home';
-import { TeamsPage } from '../pages/teams/teams';
-import { SearchPage } from '../pages/search/search';
-import { LivePage } from '../pages/live/live';
-import { MediasPage } from '../pages/medias/medias';
-import { SinglePostPage } from '../pages/single-post/single-post';
-import { SingleGalleryPage } from '../pages/single-gallery/single-gallery';
-import { PopSeasonsPage } from '../pages/pop-seasons/pop-seasons';
+import { HomePageModule } from '../pages/home/home.module';
+import { TeamsPageModule } from '../pages/teams/teams.module';
+import { SearchPageModule } from '../pages/search/search.module';
+import { SinglePostPageModule } from '../pages/single-post/single-post.module';
+import { LivePageModule } from '../pages/live/live.module';
+import { MediasPageModule } from '../pages/medias/medias.module';
+import { SingleGalleryPageModule } from '../pages/single-gallery/single-gallery.module';
+import { PopSeasonsPageModule } from '../pages/pop-seasons/pop-seasons.module';
+
 import { TabsPage } from '../pages/tabs/tabs';
-import { GalleryModal } from 'ionic-gallery-modal';
-import { ZoomableImage } from 'ionic-gallery-modal';
 
 // Cordova plugins
 import { StatusBar } from '@ionic-native/status-bar';
@@ -30,27 +29,24 @@ import { IonicStorageModule } from '@ionic/storage';
 
 
 import {OneSignal} from '@ionic-native/onesignal';
-import { IonMatch } from '../components/ion-match/ion-match';
-import { IonPost} from '../components/ion-post/ion-post';
 
 @NgModule({
   declarations: [
     MyApp,
-    LivePage,
-    TeamsPage,
-    SearchPage,
-    HomePage,
-    TabsPage,
-    MediasPage,
-    SinglePostPage,
-    SingleGalleryPage,
-    PopSeasonsPage,
-    IonMatch,
-    GalleryModal,
-    ZoomableImage,
-    IonPost,
+    TabsPage
   ],
   imports: [
+    
+    // Pages
+    HomePageModule,
+    TeamsPageModule,
+    SearchPageModule,
+    SinglePostPageModule,
+    LivePageModule,
+    MediasPageModule,
+    SingleGalleryPageModule,
+    PopSeasonsPageModule,
+
     BrowserModule,
     MomentModule,
     LazyLoadImageModule,
@@ -61,16 +57,7 @@ import { IonPost} from '../components/ion-post/ion-post';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    LivePage,
-    TeamsPage,
-    SearchPage,
-    HomePage,
-    TabsPage,
-    MediasPage,
-    SinglePostPage,
-    PopSeasonsPage,
-    SingleGalleryPage,
-    GalleryModal
+    TabsPage
   ],
   providers: [
     USMService,

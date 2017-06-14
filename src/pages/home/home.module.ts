@@ -1,20 +1,22 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { SearchPage } from './search';
+import { HomePage } from './home';
 
+import { IonMatchModule } from '../../components/ion-match/ion-match.module';
 import { IonPostModule } from '../../components/ion-post/ion-post.module';
 
 
 @NgModule({
   declarations: [
-    SearchPage,
+    HomePage,
   ],
   imports: [
+  	IonMatchModule,
   	IonPostModule,
-    IonicPageModule.forChild(SearchPage),
+    IonicPageModule.forChild(HomePage),
   ],
   exports: [
-    SearchPage
+    HomePage
   ]
 })
-export class SearchPageModule {}
+export class HomePageModule {}
