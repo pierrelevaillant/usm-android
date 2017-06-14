@@ -59,13 +59,11 @@
   "cordova": {
     "plugins": {
       "cordova-plugin-inappbrowser": {},
-      "cordova-plugin-console": {},
       "cordova-plugin-device": {},
       "cordova-plugin-splashscreen": {},
       "cordova-plugin-statusbar": {},
       "cordova-plugin-whitelist": {},
       "ionic-plugin-keyboard": {},
-      "com-sarriaroman-photoviewer": {},
       "cordova-plugin-x-socialsharing": {},
       "onesignal-cordova-plugin": {},
       "cordova-sqlite-storage": {},
