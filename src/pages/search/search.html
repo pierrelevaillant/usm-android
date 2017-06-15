@@ -31,7 +31,7 @@
   	</ion-list>
 
   	<ion-list> 
-        <ion-post *ngFor="let post of items" [post]="post" (click)="postTapped($event, post)"></ion-post>
+        <ion-post-small *ngFor="let post of items" [post]="post" (click)="postTapped($event, post)"></ion-post-small>
     </ion-list>
 
 </ion-content>

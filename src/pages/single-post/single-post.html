@@ -14,29 +14,21 @@
 <ion-content class="singlePost">
 
 	<div *ngIf="post">
-		<img *ngIf="post.featured_media" [lazyLoad]="post.featured_media.sizes.medium.source_url" class="featured-image" />
+		<img *ngIf="post.media" [lazyLoad]="post.media.sizes.medium.source_url" class="featured-image" />
 		<ion-match *ngIf="post.featured_match" [match]="post.featured_match"></ion-match>
 		<ion-card-content>
 			<ion-card-title>
-				<h1 [innerHTML]="post.title.rendered"></h1>
+				<h1 [innerHTML]="post.title"></h1>
 			</ion-card-title>
 			<small class="singlePost__date" [innerHTML]="post.date | amCalendar:{lastWeek:'DD/MM/YYYY'}"></small>
-			<div [innerHTML]="post.content.rendered"></div>
+			<div [innerHTML]="post.content"></div>
 		</ion-card-content>
 		
 		<ion-card-content *ngIf="relatedPosts">
 			<h2>Articles similaires</h2>
 
 			<ion-list>
-				<button ion-item class="related__item" *ngFor="let post of relatedPosts" (click)="itemTapped($event, post)">
-					<div class="related__item__wrapper" *ngIf="post.featured_media" [ngStyle]="{'background-image': 'url(' + post.featured_media.sizes.slide.source_url + ')'}">
-					</div>
-					
-				  	<div class="related__item__content">
-				    	<h2 [innerHTML]="post.title.rendered"></h2>
-				    	<small class="related__item__date" [innerHTML]="post.date | amCalendar:{lastWeek:'DD/MM/YYYY'}"></small>
-				  	</div>
-				</button>
+				<ion-post-small *ngFor="let post of relatedPosts" [post]="post" (click)="itemTapped($event, post)"></ion-post-small>
 			</ion-list>
 
 		</ion-card-content>

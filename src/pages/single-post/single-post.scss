@@ -37,42 +37,4 @@ page-single-post {
 			}
 		}
 	}
-
-	.related__item {
-		padding-left: 0;
-
-		.item-inner{
-			padding-right: 0 !important;
-			border : none !important;
-
-			ion-label {
-				margin: 8px 0px 8px 0 !important;
-			}
-		}
-
-		&__wrapper {
-			display: inline-block;
-			width: 120px;
-    		height: 75px;
-    		background-size: cover;
-    		background-position: center center;
-    		vertical-align: top;
-    		margin-right: 5px;
-
-    		& + .related__item__content {
-    			width: calc(100% - 125px);
-    		}
-		}
-
-		&__content {
-			display: inline-block;
-			white-space: initial !important;
-			vertical-align: top;
-
-			.related__item__date {
-				color: $grey;
-			}
-		}
-
-	}
 }
