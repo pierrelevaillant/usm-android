@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { SearchPage } from './search';
 
-import { IonPostModule } from '../../components/ion-post/ion-post.module';
+import { IonPostSmallModule } from '../../components/ion-post-small/ion-post-small.module';
 
 
 @NgModule({
@@ -10,7 +10,7 @@ import { IonPostModule } from '../../components/ion-post/ion-post.module';
     SearchPage,
   ],
   imports: [
-  	IonPostModule,
+  	IonPostSmallModule,
     IonicPageModule.forChild(SearchPage),
   ],
   exports: [

@@ -3,7 +3,7 @@ import 'rxjs/add/operator/map';
   
 export class USMService {  
 
-    private api_host: string = 'https://api-beta.usmontagnarde.fr/';
+    private api_host: string = 'https://api-beta.usmontagnarde.fr/v3/';
     private api_version: string = 'v3/';
 
     static get parameters() {
@@ -39,35 +39,35 @@ export class USMService {
     // Get all posts
     // @param page : number page number
     searchPosts(q: any) {
-        let url = this.api_host + this.api_version + 'search?q=' + q;
+        let url = this.api_host + 'search?q=' + q;
         return this.request(url);
     }
 
     // Get all posts
     // @param page : number page number
     getPosts(page: number = 1) {
-        let url = this.api_host + this.api_version + 'posts?page=' + page;
+        let url = this.api_host + 'posts?page=' + page;
         return this.request(url);
     }
 
     // Get post
     // @param id : number post id
     getPost(id) {
-        let url = this.api_host + this.api_version + 'posts/' + id;
+        let url = this.api_host + 'posts/' + id;
         return this.request(url);
     }
 
     // Get all galleries
     // @param page : number page number
     getGalleries(page: number = 1) {
-        let url = this.api_host + this.api_version + 'galleries?page=' + page;
+        let url = this.api_host + 'galleries?page=' + page;
         return this.request(url);
     }
 
     // Get gallery
     // @param id : number Gallery ID
     getGallery(id: number) {
-        let url = this.api_host + this.api_version + 'galleries/' + id;
+        let url = this.api_host + 'galleries/' + id;
         return this.request(url);
     }
 
@@ -79,25 +79,25 @@ export class USMService {
 
     // Get teams
     getTeams() {
-        let url = this.api_host + this.api_version + 'teams';
+        let url = this.api_host + 'teams';
         return this.request(url);
     }
 
     // Get season
     getSeason(id, season = null) {
-        let url = this.api_host + this.api_version + 'teams/' + id + '/season?season=' + (season ? season : '');
+        let url = this.api_host + 'teams/' + id + '/season?season=' + (season ? season : '');
         return this.request(url);
     }
 
     // Get season
     getSeasons() {
-        let url = this.api_host + this.api_version + 'seasons';
+        let url = this.api_host + 'seasons';
         return this.request(url);
     }
 
     // Get teams
     getRecap(id) {
-        let url = this.api_host + this.api_version + 'teams/' + id + '/recap';
+        let url = this.api_host + 'teams/' + id + '/recap';
         return this.request(url);
     }
 
