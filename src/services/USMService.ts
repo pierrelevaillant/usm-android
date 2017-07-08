@@ -4,7 +4,6 @@ import 'rxjs/add/operator/map';
 export class USMService {  
 
     private api_host: string = 'https://api-beta.usmontagnarde.fr/v3/';
-    private api_version: string = 'v3/';
 
     static get parameters() {
         return [[Http]];

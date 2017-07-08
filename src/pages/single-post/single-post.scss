@@ -11,6 +11,13 @@ page-single-post {
 	}
 
 	.singlePost {
+		.featured_image {
+			height: 200px;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+
 		&__date {
 			color: $grey;
 		}
