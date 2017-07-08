@@ -14,7 +14,9 @@
 <ion-content class="singlePost">
 
 	<div *ngIf="post">
-		<img *ngIf="post.media" [lazyLoad]="post.media.sizes.medium.source_url" class="featured-image" />
+		
+		<div class="featured_image" *ngIf="post.media" [ngStyle]="{'background-image': 'url(' + post.media.sizes.medium.source_url + ')'}"></div>
+		
 		<ion-match *ngIf="post.featured_match" [match]="post.featured_match"></ion-match>
 		<ion-card-content>
 			<ion-card-title>
