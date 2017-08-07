@@ -77,11 +77,14 @@
         <splash height="960" src="resources/ios/splash/Default@2x~iphone.png" width="640" />
         <splash height="480" src="resources/ios/splash/Default~iphone.png" width="320" />
     </platform>
+    <allow-navigation href="http://192.168.0.31:8100" />
     <engine name="android" spec="^6.2.3" />
+    <plugin name="com-sarriaroman-photoviewer" spec="^1.1.10" />
     <plugin name="cordova-fabric-plugin" spec="^1.1.7">
         <variable name="FABRIC_API_KEY" value="7ad1713abfda7cb056c51c6fcb7d33b0a4bdefc6" />
         <variable name="FABRIC_API_SECRET" value="35b73bc73210deaf655b0f98c9dfb1f59de72a477afe8e81ad2b6aecc9576173" />
     </plugin>
+    <plugin name="cordova-plugin-console" spec="^1.0.5" />
     <plugin name="cordova-plugin-device" spec="^1.1.4" />
     <plugin name="cordova-plugin-inappbrowser" spec="^1.7.1" />
     <plugin name="cordova-plugin-splashscreen" spec="^4.0.3" />
@@ -91,6 +94,4 @@
     <plugin name="cordova-sqlite-storage" spec="^2.0.4" />
     <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
     <plugin name="onesignal-cordova-plugin" spec="^2.1.1" />
-    <plugin name="com-sarriaroman-photoviewer" spec="^1.1.10" />
-    <plugin name="cordova-plugin-console" spec="^1.0.5" />
 </widget>

@@ -94,6 +94,11 @@ export class HomePage {
 			this.items = data;
 			refresher.complete();
 		});
+
+		// Get team A recap
+        this.getRecap().then( data => {
+			this.matchs = data;
+		});
 	}
 
 	itemTapped(event, post) {
@@ -112,4 +117,5 @@ export class HomePage {
 		let modal = this.modalCtrl.create(SearchPage);
     	modal.present();
 	}
+
 }

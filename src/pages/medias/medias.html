@@ -16,7 +16,7 @@
         <img *ngIf="post.media" [lazyLoad]="post.media.sizes.slide.source_url"/>
       </div>
       <div class="singleGallery__content">
-        <h2 [innerHTML]="post.title.rendered"></h2>
+        <h2 [innerHTML]="post.title"></h2>
         <small class="singleGallery__category" [innerHTML]="post.gallery_count + ' photos'"></small>
         <small class="singleGallery__date" [innerHTML]="post.date | amCalendar:{lastWeek:'DD/MM/YYYY'}"></small>
       </div>

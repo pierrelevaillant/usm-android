@@ -56,6 +56,14 @@ export class USMService {
         return this.request(url);
     }
 
+
+    // Get post related posts
+    // @param id : number post id
+    getPostRelatedPosts(id) {
+        let url = this.api_host + 'posts/' + id + '/relateds';
+        return this.request(url);
+    }
+
     // Get all galleries
     // @param page : number page number
     getGalleries(page: number = 1) {
@@ -97,6 +105,12 @@ export class USMService {
     // Get teams
     getRecap(id) {
         let url = this.api_host + 'teams/' + id + '/recap';
+        return this.request(url);
+    }
+
+    // Send encouragement
+    sendEncouragement(id) {
+        let url = this.api_host + 'live/encouragement?match=' + id;
         return this.request(url);
     }
 

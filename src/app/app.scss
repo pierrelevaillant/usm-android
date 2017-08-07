@@ -68,6 +68,14 @@ table tbody td, table tbody th {
   .tab-button {
     color: rgba(255, 255, 255, .4);
 
+    &[aria-selected=true] {
+      color: white;
+
+      .tab-button-icon {
+        color: white;
+      }
+    }
+
     &-icon {
       color: rgba(255, 255, 255, .4);
     }

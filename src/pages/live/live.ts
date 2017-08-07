@@ -39,7 +39,7 @@ export class LivePage {
 		return new Promise(resolve => {
 			this.USMService.getSocial().subscribe(
                 data => {
-                    resolve(data);
+                    resolve(data.data);
                 },
                 err => {}
             );

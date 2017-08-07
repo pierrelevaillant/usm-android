@@ -35,15 +35,13 @@ export class SinglePostPage {
 		this.socialSharing.share(this.post.title.rendered, null, image, this.post.link); 
 	}
 
-    loadRelatedPosts() {
-    	for (var i = 0; i < this.post.related_posts['length']; ++i) {
-	    	this.USMService.getPost(this.post.related_posts[i].id).subscribe(
-                data => {
-                    this.relatedPosts.push(data);
-                },
-                err => {}
-            );
-    	}
+loadRelatedPosts() {
+    	this.USMService.getPostRelatedPosts(this.post.id).subscribe(
+            data => {
+                this.relatedPosts = data.data;
+            },
+            err => {}
+        );
     }
 
 	itemTapped(event, post) {

@@ -1,6 +1,7 @@
-<ion-tabs #pageTabs selectedIndex="{{activeTab}}" (ionChange)="tabsChange()" [ngClass]="{'tabsDark' : (activeTab == 2)}">
+<ion-tabs #pageTabs selectedIndex="{{activeTab}}" (ionChange)="tabsChange()" [ngClass]="{'tabsDark' : (activeTab == 3)}">
 	<ion-tab [root]="tab1Root" tabTitle="Actualités" tabIcon="home" tabsHideOnSubPages="true"></ion-tab>
-	<ion-tab [root]="tab2Root" tabTitle="Équipes" tabIcon="football"></ion-tab>
+	<ion-tab [root]="tab2Root" tabTitle="Calendriers" tabIcon="football"></ion-tab>
+	<ion-tab [root]="tab2Root" tabTitle="Classements" tabIcon="paper"></ion-tab>
 	<ion-tab [root]="tab3Root" tabTitle="Photos" tabIcon="photos"></ion-tab>
 	<ion-tab [root]="tab4Root" tabTitle="Live" tabIcon="wifi"></ion-tab>
 </ion-tabs>

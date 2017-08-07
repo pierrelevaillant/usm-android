@@ -33,7 +33,7 @@ import {OneSignal} from '@ionic-native/onesignal';
 @NgModule({
   declarations: [
     MyApp,
-    TabsPage,
+    TabsPage
   ],
   imports: [
     

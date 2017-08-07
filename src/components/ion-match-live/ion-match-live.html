@@ -1,0 +1,33 @@
+<div class="game__item">
+	<div class="game__item__meta competition">
+  	<span>{{ match.title }}</span>
+  </div>
+  	
+  	<div class="teams__content" [ngClass]="{'won' : (match.result == 'GA'), 'loose' : (match.result == 'PE')}">
+  		
+  		<div class="teams__content__wrapper">
+  			<img [src]="match.home_team.club.logo_url" alt="Logo équipe domicile">
+			<h3>{{ match.home_team.club.name }}</h3>
+  		</div>
+		
+		<span>{{ match.home_score }} - {{ match.away_score }}</span>
+		
+		<div class="teams__content__wrapper">
+  			<img [src]="match.away_team.club.logo_url" alt="Logo équipe extérieure">
+			<h3>{{ match.away_team.club.name }}</h3>
+  		</div>
+
+  	</div>
+  	<div class="game__item__meta date">
+  		<span>{{ match.competition.name }} — {{ match.date | amCalendar:{lastWeek:'DD/MM/YYYY'} }}</span>
+    </div>
+
+    <hr>
+
+    <div class="game__item__social" *ngIf="post" [innerHTML]="post.social.text"></div>
+
+    <div class="game__item__support">
+    	<p>{{ match.encouragement }} encouragement{{ match.encouragement > 1 ? 's' : '' }} !</p>
+    	<button (click)="btnTapped($event)">+1</button>
+    </div>
+</div>
