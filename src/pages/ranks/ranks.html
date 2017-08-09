@@ -6,37 +6,48 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-	<ion-title>Classements</ion-title>
-	<ion-buttons end>
-	  <button ion-button icon-only (click)="seasonsPopover($event)">
-		<ion-icon name="more"></ion-icon>
-	  </button>
-	</ion-buttons>
-  </ion-navbar>
+	<ion-navbar>
+		<ion-title>Classements</ion-title>
+		<ion-buttons end>
+			<button ion-button icon-only (click)="seasonsPopover($event)">
+				<ion-icon name="more"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-navbar>
 
-   <ion-toolbar no-border-top>
-	<ion-segment *ngIf="teams" [(ngModel)]="segment" (ionChange)="segmentChanged($event)">
-	  <ion-segment-button *ngFor="let team of teams" value="{{team.id}}">
-	  	{{team.name}}
-	  </ion-segment-button>
-	</ion-segment>
-  </ion-toolbar>
+	<ion-toolbar no-border-top>
+		<ion-segment *ngIf="teams" [(ngModel)]="segment" (ionChange)="segmentChanged($event)">
+			<ion-segment-button *ngFor="let team of teams" value="{{team.id}}">
+				{{team.name}}
+			</ion-segment-button>
+		</ion-segment>
+	</ion-toolbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+	<p class="ranks__message" *ngIf="ranks && !ranks.length">Aucun classement disponible à ce jour.</p>
 	<ion-list>
+		<ion-item *ngIf="ranks && ranks.length">
+			<div class="item__rank item__rank--default">
+				<span class="item__rank__nb">Equipe</span>
+				<span class="item__rank__team__name"></span>
+				<div class="item__rank__numbers">
+					<span class="item__rank__points"><b>Pts</b></span>
+					<span class="item__rank__round">J</span>
+					<span class="item__rank__diff">D</span>
+				</div>
+			</div>
+		</ion-item>
 		<ion-item *ngFor="let team of ranks">
 			<div class="item__rank">
 				<span class="item__rank__nb">{{ team.rank }}</span>
-				<img class="item__rank__logo" [src]="team.team.club.logo_url" alt="Logo équipe">
+				<img *ngIf="team.team.club.logo_url" class="item__rank__logo" [src]="team.team.club.logo_url" alt="{{ team.team.club.name }}">
 				<span class="item__rank__team__name">{{ team.team.club.name }}</span>
 
 				<div class="item__rank__numbers">
-					<span class="item__rank__points">{{ team.point_count }}</span>
+					<span class="item__rank__points"><b>{{ team.point_count }}</b></span>
 					<span class="item__rank__round">{{ team.round_number }}</span>
 					<span class="item__rank__diff">{{ team.goals_diff }}</span>
 				</div>

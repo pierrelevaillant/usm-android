@@ -1,4 +1,13 @@
+.ranks__message {
+	text-align: center;
+	color: $grey;
+}
+
 page-ranks {
+	.list {
+		box-shadow: 0 4px 5px 0 rgba(0,0,0,0.02), 0 1px 10px 0 rgba(0,0,0,0.02), 0 2px 4px -1px rgba(0,0,0,0.02);
+	}
+
 	.has-refresher > .scroll-content {
 		border-top: none;
 	}
@@ -44,20 +53,29 @@ page-ranks {
 
 		&__nb {
 			font-weight: bold;
+			width: 15px;
+		}
+
+		&__round, &__diff {
+			color: $grey;
 		}
 
 		&__logo {
 			width: 20px;
-			margin: 0 10px;
+			margin-left: 10px;
+		}
+
+		&__team__name {
+			margin-left: 10px;
 		}
 
 		&__numbers {
 			float: right;
-			width: 70px;
+			width: 100px;
 
 			> * {
-				width: 20px;
-				text-align: center;
+				width: 25px;
+				text-align: right;
 				display: inline-block;
 			}
 		}

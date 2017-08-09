@@ -1,13 +1,13 @@
 <ion-header>
 	<ion-navbar>
-	  <ion-toolbar>
-	    <ion-buttons start>
-	      	<button ion-button icon-only (click)="regularShare()">
-	        	<ion-icon name="share"></ion-icon>
-	      	</button>
-	    </ion-buttons>
-	    <ion-title *ngIf="post">{{post.categories[0].name}}</ion-title>
-	  </ion-toolbar>
+		<ion-toolbar>
+			<ion-buttons start>
+				<button ion-button icon-only (click)="regularShare()">
+					<ion-icon name="share"></ion-icon>
+				</button>
+			</ion-buttons>
+			<ion-title *ngIf="post">{{post.categories[0].name}}</ion-title>
+		</ion-toolbar>
 	</ion-navbar>
 </ion-header>
 
@@ -27,7 +27,9 @@
 		</ion-card-content>
 		
 		<ion-card-content *ngIf="relatedPosts">
-			<h2>Articles similaires</h2>
+			<hr>
+
+			<h3>Articles similaires</h3>
 
 			<ion-list>
 				<ion-post-small *ngFor="let post of relatedPosts" [post]="post" (click)="itemTapped($event, post)"></ion-post-small>
