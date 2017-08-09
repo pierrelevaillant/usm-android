@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { NavParams, Tabs } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { TeamsPage } from '../teams/teams';
+import { RanksPage } from '../ranks/ranks';
 import { LivePage } from '../live/live';
 import { MediasPage } from '../medias/medias';
 
@@ -13,8 +14,9 @@ export class TabsPage {
 
   	tab1Root = HomePage;
   	tab2Root = TeamsPage;
-  	tab3Root = MediasPage;
-  	tab4Root = LivePage;
+  	tab3Root = RanksPage;
+  	tab4Root = MediasPage;
+  	tab5Root = LivePage;
 
   	activeTab: any;
 

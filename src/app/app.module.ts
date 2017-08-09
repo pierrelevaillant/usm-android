@@ -15,6 +15,7 @@ import { SearchPageModule } from '../pages/search/search.module';
 import { SinglePostPageModule } from '../pages/single-post/single-post.module';
 import { LivePageModule } from '../pages/live/live.module';
 import { MediasPageModule } from '../pages/medias/medias.module';
+import { RanksPageModule } from '../pages/ranks/ranks.module';
 import { SingleGalleryPageModule } from '../pages/single-gallery/single-gallery.module';
 import { PopSeasonsPageModule } from '../pages/pop-seasons/pop-seasons.module';
 
@@ -43,6 +44,7 @@ import {OneSignal} from '@ionic-native/onesignal';
     SearchPageModule,
     SinglePostPageModule,
     LivePageModule,
+    RanksPageModule,
     MediasPageModule,
     SingleGalleryPageModule,
     PopSeasonsPageModule,

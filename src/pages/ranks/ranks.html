@@ -1,0 +1,47 @@
+<!--
+  Generated template for the RanksPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+	<ion-title>Classements</ion-title>
+	<ion-buttons end>
+	  <button ion-button icon-only (click)="seasonsPopover($event)">
+		<ion-icon name="more"></ion-icon>
+	  </button>
+	</ion-buttons>
+  </ion-navbar>
+
+   <ion-toolbar no-border-top>
+	<ion-segment *ngIf="teams" [(ngModel)]="segment" (ionChange)="segmentChanged($event)">
+	  <ion-segment-button *ngFor="let team of teams" value="{{team.id}}">
+	  	{{team.name}}
+	  </ion-segment-button>
+	</ion-segment>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+	<ion-list>
+		<ion-item *ngFor="let team of ranks">
+			<div class="item__rank">
+				<span class="item__rank__nb">{{ team.rank }}</span>
+				<img class="item__rank__logo" [src]="team.team.club.logo_url" alt="Logo équipe">
+				<span class="item__rank__team__name">{{ team.team.club.name }}</span>
+
+				<div class="item__rank__numbers">
+					<span class="item__rank__points">{{ team.point_count }}</span>
+					<span class="item__rank__round">{{ team.round_number }}</span>
+					<span class="item__rank__diff">{{ team.goals_diff }}</span>
+				</div>
+			</div>
+		</ion-item>
+	</ion-list>
+
+</ion-content>

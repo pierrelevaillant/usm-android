@@ -96,6 +96,12 @@ export class USMService {
         return this.request(url);
     }
 
+    // Get ranks
+    getRanks(id, season = null) {
+        let url = this.api_host + 'teams/' + id + '/ranking?season=' + (season ? season : '');
+        return this.request(url);
+    }
+
     // Get season
     getSeasons() {
         let url = this.api_host + 'seasons';

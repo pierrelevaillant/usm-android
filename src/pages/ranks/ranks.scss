@@ -1,0 +1,66 @@
+page-ranks {
+	.has-refresher > .scroll-content {
+		border-top: none;
+	}
+
+	.content-md {
+		background: $light-blue;
+	}
+	.scroll-content {
+		padding: 20px 0 !important;
+	}
+
+	ion-toolbar {
+		overflow-x: scroll !important;
+		background-color: #154EBB;
+	}
+
+	ion-segment {
+		display: block;
+		flex: inherit !important;
+
+		.segment-button {
+			display: inline;
+			flex: inherit !important;
+			width: auto !important;
+			padding: 0 10px 10px !important;
+		}
+	}
+
+	.segment-md .segment-button.activated, .segment-md .segment-button.segment-activated {
+		border-color: white;
+	}
+
+
+	.segment-md .segment-button {
+		color: white;
+	}
+
+	.item__rank {
+		> * {
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		&__nb {
+			font-weight: bold;
+		}
+
+		&__logo {
+			width: 20px;
+			margin: 0 10px;
+		}
+
+		&__numbers {
+			float: right;
+			width: 70px;
+
+			> * {
+				width: 20px;
+				text-align: center;
+				display: inline-block;
+			}
+		}
+
+	}
+}
