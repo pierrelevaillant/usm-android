@@ -82,3 +82,7 @@ $light-blue:  #F6F8FC;
 // --------------------------------------------------
 
 @import "roboto";
+
+.item-md, .content-md, .card-title-md {
+	color: #3D4248 !important;
+}

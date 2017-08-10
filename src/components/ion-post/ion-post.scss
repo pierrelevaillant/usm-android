@@ -9,12 +9,26 @@ ion-post {
 				font-weight: 500;
 				margin-bottom: 10px;
 				margin: 0;
-			    margin-bottom: 3px;	
-			    white-space: normal;
+				margin-bottom: 3px;	
+				white-space: normal;
+				line-height: 1.2;
+			}
+
+			&__smallImage {
+				float: left;
+				max-width: 90px;
+				max-height: 90px;
+				margin-right: 20px;
 			}
 
 			img {
 				opacity: .98;
+			}
+
+			ion-icon {
+				display: inline-block;
+				margin-right: 5px;
+				font-size: 1.6rem;
 			}
 
 			&__content {
@@ -23,19 +37,26 @@ ion-post {
 
 			&__date {
 				color: $grey;
-				margin-right: 5px;
+				clear: both;
 			}
 
 			&__category {
 				color: $red;
 				font-weight: 500;
+				margin-right: 5px;
+			}
+
+			&__galleryCount {
+				color: $grey;
+				font-weight: 500;
+				margin-right: 5px;
 			}
 		}
 	}
 
 
 	.label-md {
-	    margin: 0;
+		margin: 0;
 	}
 
 	.item-md {
