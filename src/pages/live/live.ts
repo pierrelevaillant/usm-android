@@ -9,12 +9,12 @@ import { Fabric } from '../../services/Fabric';
 
 @IonicPage()
 @Component({
-  selector: 'page-live',
-  templateUrl: 'live.html'
+	selector: 'page-live',
+	templateUrl: 'live.html'
 })
 export class LivePage {
-    social_items: any;
-    loading: any;
+	social_items: any;
+	loading: any;
 
 	constructor(
 		private iab: InAppBrowser,
@@ -22,27 +22,27 @@ export class LivePage {
 		private http: Http,
 		private USMService: USMService,
 		private Fabric: Fabric
-	) {}
+		) {}
 
-    ionViewDidLoad() {
-    	this.presentLoadingDefault();
-        this.loadPosts().then( data => {
+	ionViewDidLoad() {
+		this.presentLoadingDefault();
+		this.loadPosts().then( data => {
 			this.social_items = data;
 			this.loading.dismiss();
 		});
 
 		// Send Fabric event
 		this.Fabric.sendCustomEvent('Live', null);
-    }
+	}
 
-    loadPosts() {
+	loadPosts() {
 		return new Promise(resolve => {
 			this.USMService.getSocial().subscribe(
-                data => {
-                    resolve(data.data);
-                },
-                err => {}
-            );
+				data => {
+					resolve(data.data);
+				},
+				err => {}
+				);
 		});
 	}
 
@@ -56,6 +56,10 @@ export class LivePage {
 
 	itemTapped(event, post) {
 		this.iab.create(post.social.link);
+	}
+
+	shareTapped(event, share) {
+		this.iab.create(share.url);
 	}
 
 	doRefresh(refresher) {

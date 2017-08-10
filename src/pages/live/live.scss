@@ -6,7 +6,7 @@ page-live {
 		
 		ion-avatar, h2 {
 			display: inline-block;
-			vertical-align: middle;
+			vertical-align: top;
 		}
 	}
 
@@ -16,6 +16,13 @@ page-live {
 			h2 {
 				font-weight: 500;
 				font-size:1.5rem;
+				margin-top: 0;
+
+				span {
+					color: $grey;
+					font-size: 1.2rem;
+					font-weight: normal;
+				}
 			}
 
 			header {
@@ -24,10 +31,39 @@ page-live {
 
 			img {
 				border-radius: 3px;
+
+				&.facebook {
+					margin-top: 20px;
+				}
+
+				&.instagram {
+					margin-bottom: 5px;
+				}
 			}
 
 			&__content {
 				line-height: 1.4;
+				font-size: 1.5rem;
+
+				&.instagram {
+					font-size: 1.4rem;
+				}
+			}
+
+			&__share {
+				margin-top: 20px;
+			}
+
+			&__likes {
+				color: $grey;
+				font-size: 1.2rem;
+				font-weight: bold;
+				margin-top: 10px;
+
+				ion-icon {
+					margin-right: 2px;
+					font-size: 1.2rem;
+				}
 			}
 		}
 	}
@@ -44,6 +80,10 @@ page-live {
 		padding: 15px;
 		margin-top: 15px;
 		box-shadow: 0 4px 5px 0 rgba(0,0,0,0.02), 0 1px 10px 0 rgba(0,0,0,0.02), 0 2px 4px -1px rgba(0,0,0,0.02);
+
+		&:last-child {
+			margin-bottom: 15px;
+		}
 	}
 
 	.label-md {

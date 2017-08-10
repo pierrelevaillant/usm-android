@@ -10,14 +10,21 @@
 		<ion-refresher-content></ion-refresher-content>
 	</ion-refresher>
 
-	<div (click)="itemTapped($event, post)" class="live__item" ion-item *ngFor="let post of social_items">
+	<div class="live__item" ion-item *ngFor="let post of social_items">
 		<header>
 			<ion-avatar item-left>
 				<img [src]="post.social.owner.image">
 			</ion-avatar>
-			<h2 [innerHTML]="post.social.owner.user"></h2>
+			<h2>US Montagnarde<br><span>{{post.social.date*1000 | date:'dd/MM à HH:mm' }}</span></h2>
 		</header>
-		<img *ngIf="post.social.image" [src]="post.social.image.url">
-		<div class="live__item__content" [innerHTML]="post.social.text"></div>
+		<div (click)="itemTapped($event, post)">
+			<div *ngIf="post.social.type=='facebook'" class="live__item__content {{post.social.type}}" [innerHTML]="post.social.text"></div>
+			<img *ngIf="post.social.image" class="{{post.social.type}}" [src]="post.social.image.url">
+			<div *ngIf="post.social.type=='instagram'" class="live__item__content {{post.social.type}}" [innerHTML]="post.social.text"></div>
+		</div>
+		<div *ngIf="post.social.share" (click)="shareTapped($event, post.social.share)" class="live__item__share">
+			<img *ngIf="post.social.share.image" [src]="post.social.share.image.url">
+		</div>
+		<div *ngIf="post.social.likes" class="live__item__likes"><ion-icon name="heart"></ion-icon> {{ post.social.likes }}</div>
 	</div>
 </ion-content>
