@@ -2,6 +2,10 @@
 	box-shadow: none;
 }
 
+ion-slide .game__item {
+	margin-bottom: 0px;
+} 
+
 .game__item {
 	text-align: center;
 	width: 100%;
@@ -10,6 +14,7 @@
 	padding-bottom: 10px;
 	margin-bottom: 10px;
 	box-shadow: 0 4px 5px 0 rgba(0,0,0,0.02), 0 1px 10px 0 rgba(0,0,0,0.02), 0 2px 4px -1px rgba(0,0,0,0.02);
+
 
 	&__date {
 		color: $grey;
@@ -26,18 +31,19 @@
 
 		&.competition {
 			margin-bottom: 5px;
+			text-transform: uppercase;
+			font-size: 1.2rem;
+			font-weight: 500;
+			letter-spacing: .25px;
 		}
 
 		&.date {
-			margin-top: 5px;
-
-			span {
-				white-space: nowrap;
-				max-width: 100%;
-				text-overflow: ellipsis;
-				overflow: hidden;
-				display: block;
-			}
+			margin-top: 10px;
+			white-space: nowrap;
+			max-width: 100%;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			display: inline-block;
 		}
 
 		img {

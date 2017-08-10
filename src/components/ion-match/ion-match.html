@@ -1,7 +1,7 @@
 <div class="game__item">
 	<div class="game__item__meta competition">
     <span *ngIf="recap">{{ match.title }}</span>
-    <span *ngIf="!recap">{{ match.competition.name }}</span>
+    <span *ngIf="!recap">{{ match.competition.name }}</span><span *ngIf="match.round_number && !recap"> — J{{match.round_number}}</span>
   </div>
 
   <div class="teams__content" [ngClass]="{'won' : (match.result == 'GA'), 'loose' : (match.result == 'PE')}">
@@ -21,8 +21,7 @@
 
  </div>
  <div class="game__item__meta date">
-   <span *ngIf="recap">{{ match.competition.name }} — {{ match.date | amCalendar:{lastWeek:'DD/MM/YYYY'} }}</span>
-   <span *ngIf="!recap && match.weather_temp">{{ match.date | amCalendar:{lastWeek:'DD/MM/YYYY'} }} — {{ match.weather_temp }}° {{ match.weather_phrase }} <img [src]="'https://api-beta.usmontagnarde.fr/weather/icon/'+match.weather_icon+'?color=%23B1B1B1'" alt=""></span>  	
-   <span *ngIf="!recap && !match.weather_temp">{{ match.date | amCalendar:{lastWeek:'DD/MM/YYYY'} }}</span>
+   <span>{{ match.date | amCalendar:{lastWeek:'DD/MM/YYYY'} }}</span>
+   <span *ngIf="!match.played && match.weather_temp"> — {{ match.weather_temp }}° {{ match.weather_phrase }} <img [src]="'https://api-beta.usmontagnarde.fr/weather/icon/'+match.weather_icon+'?color=%23B1B1B1'" alt=""></span> 
  </div>
 </div>

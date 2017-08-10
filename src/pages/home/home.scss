@@ -1,10 +1,13 @@
 page-home {
 	ion-slide {
 		padding-bottom: 25px;
-    	background: white;
+		background: white;
+		width: 100% !important;
+		box-shadow: 0 4px 5px 0 rgba(0,0,0,0.02), 0 1px 10px 0 rgba(0,0,0,0.02), 0 2px 4px -1px rgba(0,0,0,0.02);
 	}
 
 	.slides {
+		background-color: white;
 		box-shadow: 0 4px 5px 0 rgba(0,0,0,0.02), 0 1px 10px 0 rgba(0,0,0,0.02), 0 2px 4px -1px rgba(0,0,0,0.02);
 	}
 
@@ -21,7 +24,7 @@ page-home {
 	}
 
 	.list-md {
-	    margin: 15px 0 15px 0;
+		margin: 15px 0 15px 0;
 	}
 
 }
