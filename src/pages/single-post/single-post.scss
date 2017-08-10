@@ -1,4 +1,13 @@
 page-single-post {
+
+	h1 {
+		margin-bottom:.5rem;
+	}
+
+	hr {
+		margin-bottom: 30px;
+	}
+
 	.has-refresher > .scroll-content {
 		border-top: none;
 	}
@@ -11,6 +20,18 @@ page-single-post {
 	}
 
 	.singlePost {
+		&__similarArticles {
+			h2 {
+				margin-top: -4px;
+			}
+
+			h3 {
+				margin-bottom: 15px;
+			}
+
+
+		}
+
 		.featured_image {
 			height: 200px;
 			background-position: center;
