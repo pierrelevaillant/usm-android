@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, LoadingController } from 'ionic-angular';
+import { IonicPage, LoadingController, AlertController } from 'ionic-angular';
 import { Http } from '@angular/http';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import 'rxjs/add/operator/map';
@@ -19,6 +19,7 @@ export class LivePage {
 	constructor(
 		private iab: InAppBrowser,
 		private loadingCtrl: LoadingController,
+		private alertCtrl: AlertController,
 		private http: Http,
 		private USMService: USMService,
 		private Fabric: Fabric
@@ -55,7 +56,26 @@ export class LivePage {
 	}
 
 	itemTapped(event, post) {
-		this.iab.create(post.social.link);
+		let alert = this.alertCtrl.create({
+		title: 'Redirection',
+		message: 'Vous allez être redirigé vers ' + (post.social.type == 'facebook' ? 'Facebook' : 'Instagram'),
+		buttons: [
+		  {
+		    text: 'Annuler',
+		    role: 'cancel',
+		    handler: () => {
+		      //
+		    }
+		  },
+		  {
+		    text: 'Continuer',
+		    handler: () => {
+				this.iab.create(post.social.link);
+		    }
+		  }
+		]
+		});
+		alert.present();
 	}
 
 	shareTapped(event, share) {

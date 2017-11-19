@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { USMService } from '../../services/USMService';
+import { Fabric } from '../../services/Fabric';
 
 /**
  * Generated class for the IonMatchLiveComponent component.
@@ -17,6 +18,7 @@ export class IonMatchLive {
 
   	constructor(
   		private USMService: USMService,
+      	private Fabric: Fabric
   	) {}
 
   	ngOnInit() {
@@ -46,5 +48,8 @@ export class IonMatchLive {
             },
             err => {}
         );
+
+        // Send Fabric event
+		this.Fabric.sendCustomEvent('Live match', null);
   	}
 }
