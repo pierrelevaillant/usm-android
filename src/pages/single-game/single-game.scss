@@ -1,0 +1,19 @@
+page-single-game {
+
+	h1 {
+		margin-bottom:.5rem;
+	}
+
+	hr {
+		margin-bottom: 30px;
+	}
+
+	.has-refresher > .scroll-content {
+		border-top: none;
+	}
+
+	.singleGame {
+		&__similarArticles {
+		}
+	}
+}

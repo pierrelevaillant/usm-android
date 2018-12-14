@@ -10,7 +10,7 @@
     <ion-title>Équipes</ion-title>
     <ion-buttons end>
       <button ion-button icon-only (click)="seasonsPopover($event)">
-        <ion-icon name="more"></ion-icon>
+        <ion-icon name="calendar"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
@@ -29,7 +29,7 @@
 <ion-content padding>
 
   <ion-list>
-    <ion-match *ngFor="let match of teamSeason" [match]="match"></ion-match>
+    <ion-match *ngFor="let match of teamSeason" [match]="match" (click)="gameTapped($event, match)"></ion-match>
   </ion-list>
 
 </ion-content>

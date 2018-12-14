@@ -13,6 +13,7 @@ import { HomePageModule } from '../pages/home/home.module';
 import { TeamsPageModule } from '../pages/teams/teams.module';
 import { SearchPageModule } from '../pages/search/search.module';
 import { SinglePostPageModule } from '../pages/single-post/single-post.module';
+import { SingleGamePageModule } from '../pages/single-game/single-game.module';
 import { LivePageModule } from '../pages/live/live.module';
 import { MediasPageModule } from '../pages/medias/medias.module';
 import { RanksPageModule } from '../pages/ranks/ranks.module';
@@ -43,6 +44,7 @@ import {OneSignal} from '@ionic-native/onesignal';
     TeamsPageModule,
     SearchPageModule,
     SinglePostPageModule,
+    SingleGamePageModule,
     LivePageModule,
     RanksPageModule,
     MediasPageModule,
