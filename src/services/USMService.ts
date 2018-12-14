@@ -1,17 +1,17 @@
 import {Http, Headers, RequestOptions} from '@angular/http';
 import 'rxjs/add/operator/map';
-  
+
 export class USMService {  
 
-    private api_host: string = 'https://api.usmontagnarde.fr/v3/';
+    private api_host: string = 'https://api.usmontagnarde.fr/';
 
     static get parameters() {
         return [[Http]];
     }
-  
+
     constructor(
         private http:Http
-    ) {}
+        ) {}
 
     // Request API REST
     // with correct headers data
@@ -27,14 +27,14 @@ export class USMService {
         });
 
         return this.http.get(url, opt).map(res => res.json());
-   
+
     }
 
 
     //
     // API ENDPOINTS
     //
-  
+
     // Get all posts
     // @param page : number page number
     searchPosts(q: any) {
@@ -55,7 +55,6 @@ export class USMService {
         let url = this.api_host + 'posts/' + id;
         return this.request(url);
     }
-
 
     // Get post related posts
     // @param id : number post id
@@ -95,6 +94,17 @@ export class USMService {
         let url = this.api_host + 'teams/' + id + '/season?season=' + (season ? season : '');
         return this.request(url);
     }
+
+    // Get events from a game
+    getMatchEvents(id) {
+        let url = this.api_host + 'matchs/' + id + '/events';
+        return this.request(url);
+    }
+
+    getMatchLineUps(id) {
+        let url = this.api_host + 'matchs/' + id + '/line-ups';
+        return this.request(url);
+    } 
 
     // Get ranks
     getRanks(id, season = null) {

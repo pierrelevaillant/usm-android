@@ -1,0 +1,69 @@
+<ion-header>
+	<ion-navbar>
+		<ion-toolbar>
+			<ion-buttons start>
+				<button ion-button icon-only (click)="regularShare()">
+					<ion-icon name="share"></ion-icon>
+				</button>
+			</ion-buttons>
+			<ion-title *ngIf="game">Fiche match</ion-title>
+		</ion-toolbar>
+	</ion-navbar>
+</ion-header>
+
+<ion-content class="singleGame" *ngIf="game">
+
+	<ion-grid>
+		<ion-row>
+			<ion-col col-12 text-center>{{ game.competition.name }} — J{{ game.round_number }}</ion-col>
+			<ion-col col-5 text-center>
+				<img *ngIf="game.home_team.club.logo_url" [lazyLoad]="game.home_team.club.logo_url"/>
+				<h5>{{ game.home_team.club.name }}</h5>
+			</ion-col>
+			<ion-col col-2 text-center>
+				<span>{{ game.home_score }}</span><span>{{ game.away_score }}</span>
+			</ion-col>
+			<ion-col col-5 text-center>
+				<img *ngIf="game.away_team.club.logo_url" [lazyLoad]="game.away_team.club.logo_url"/>
+				<h5>{{ game.away_team.club.name }}</h5>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+
+	<ion-segment [(ngModel)]="matchTabs">
+		<ion-segment-button value="temps_forts">
+			Temps-forts
+		</ion-segment-button>
+		<ion-segment-button value="compositions">
+			Compositions
+		</ion-segment-button>
+		<ion-segment-button value="infos">
+			Informations
+		</ion-segment-button>
+	</ion-segment>
+
+	<div [ngSwitch]="matchTabs">
+		<ion-list *ngSwitchCase="'temps_forts'">
+			<ion-item *ngFor="let event of gameEvents">
+				{{ event.event_type }}
+			</ion-item>
+		</ion-list>
+
+		<ion-list *ngSwitchCase="'compositions'">
+			<h2>Titulaires</h2>
+			<div *ngIf="gameLineUps">
+				{{ gameLineUps.home_team.line-up }}
+				<ion-item *ngFor="let event of gameLineUps.home_team.line-up">
+					{{ event.name }}
+				</ion-item>
+			</div>
+		</ion-list>
+
+		<ion-list *ngSwitchCase="'infos'">
+			<ion-item>
+				{{ game.weather_temp }}° - {{ game.weather_phrase }}
+			</ion-item>
+		</ion-list>
+	</div>
+
+</ion-content>

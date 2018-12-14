@@ -3,6 +3,7 @@ import { IonicPage, NavController, ActionSheetController, PopoverController} fro
 import { USMService } from '../../services/USMService';
 
 import { PopSeasonsPage } from '../pop-seasons/pop-seasons';
+import { SingleGamePage } from '../single-game/single-game';
 
 /**
  * Generated class for the TeamsPage page.
@@ -24,7 +25,7 @@ export class TeamsPage {
 	segment: string;
 
 	constructor(
-		private navCtrl: NavController,
+		private navCtl: NavController,
 		private actionSheetCtrl: ActionSheetController,
 		private popoverCtrl: PopoverController,
 		private USMService: USMService
@@ -82,6 +83,12 @@ export class TeamsPage {
                 },
                 err => {}
             );
+		});
+	}
+
+	gameTapped(event, game) {
+		this.navCtl.push(SingleGamePage, {
+			game: game
 		});
 	}
 

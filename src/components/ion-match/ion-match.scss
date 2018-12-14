@@ -7,27 +7,36 @@ ion-slide .game__item {
 } 
 
 .game__item {
-	text-align: center;
 	width: 100%;
 	background: #fff;
-	padding-top:10px;
-	padding-bottom: 10px;
-	margin-bottom: 10px;
-	box-shadow: 0 4px 5px 0 rgba(0,0,0,0.02), 0 1px 10px 0 rgba(0,0,0,0.02), 0 2px 4px -1px rgba(0,0,0,0.02);
+	margin-bottom: $spacing;
+	box-shadow: $shadow;
 
+	&__score span {
+		padding: $spacing;
+		background: $dark-blue;
+		color: white;
+		border-radius: $border-radius;
+		font-size: 30px;
+		font-weight: bold;
+
+		&:first-child {
+			margin-right: $spacing;
+		}
+	}
 
 	&__date {
 		color: $grey;
 		font-size: 25px;
-		letter-spacing: -.5px;
+		border: 1px solid #eee;
+		padding: 1.5*$spacing;
+		border-radius: 4px;
 	}
 
 	&__meta {
 		color: $grey;
-		line-height: 22px;
-		font-size: 13px;
-		padding-right: 50px;
-		padding-left: 50px;
+		line-height: 15px;
+		font-size: 12px;
 
 		&.competition {
 			margin-bottom: 5px;
@@ -47,8 +56,8 @@ ion-slide .game__item {
 		}
 
 		img {
-			max-height: 22px;
-			max-width: 22px;
+			max-height: 20px;
+			max-width: 20px;
 			vertical-align: middle;
 			display: inline-block;
 		}
@@ -59,26 +68,6 @@ ion-slide .game__item {
 		& > * {
 			display: inline-block;
 			vertical-align: middle;
-			margin-right: -3px;
-		}
-
-		&.won {
-			span {
-				color: $green;
-			}
-		}
-
-		&.loose {
-			span {
-				color: $red;
-			}
-		}
-
-		span {
-			width: 20%;
-			font-weight: 600;
-			font-size: 30px;
-			letter-spacing: -3px;
 		}
 
 		&__wrapper {

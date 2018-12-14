@@ -1,27 +1,33 @@
-<div class="game__item">
-	<div class="game__item__meta competition">
-    <span *ngIf="recap">{{ match.title }}</span>
-    <span *ngIf="!recap">{{ match.competition.name }}</span><span *ngIf="match.round_number && !recap"> — J{{match.round_number}}</span>
-  </div>
+  <div class="game__item">
 
-  <div class="teams__content" [ngClass]="{'won' : (match.result == 'GA'), 'loose' : (match.result == 'PE')}">
+    <ion-grid>
+     <ion-row *ngIf="recap" >
+      <ion-col col-12 text-center>
+        {{ match.title }}
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="!recap" class="game__item__meta">
+      <ion-col col-6 text-left>
+        {{ match.date | amCalendar:{lastWeek:'DD/MM/YYYY'} }}
+      </ion-col>
 
-    <div class="teams__content__wrapper">
-     <img [src]="match.home_team.club.logo_url" alt="Logo équipe domicile">
-     <h3>{{ match.home_team.club.name }}</h3>
-   </div>
-
-   <span *ngIf="match.played">{{ match.home_score }} - {{ match.away_score }}</span>
-   <div class="game__item__date" *ngIf="!match.played">{{ match.date | amDateFormat:'HH:mm' }}</div>
-
-   <div class="teams__content__wrapper">
-     <img [src]="match.away_team.club.logo_url" alt="Logo équipe extérieure">
-     <h3>{{ match.away_team.club.name }}</h3>
-   </div>
-
- </div>
- <div class="game__item__meta date">
-   <span>{{ match.date | amCalendar:{lastWeek:'DD/MM/YYYY'} }}</span>
-   <span *ngIf="!match.played && match.weather_temp"> — {{ match.weather_temp }}° {{ match.weather_phrase }} <img [src]="'https://api-beta.usmontagnarde.fr/weather/icon/'+match.weather_icon+'?color=%23B1B1B1'" alt=""></span> 
- </div>
+      <ion-col col-6 text-right>
+        {{ match.competition.name }} <span *ngIf="match.round_number"> — J{{match.round_number}}</span>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-4 text-center class="teams__content__wrapper">
+        <img *ngIf="match.home_team.club.logo_url" [src]="match.home_team.club.logo_url" alt="{{ match.home_team.club.name }}">
+        <h3>{{ match.home_team.club.name }}</h3>
+      </ion-col>
+      <ion-col col-4 text-center padding-vertical>
+       <div class="game__item__score" *ngIf="match.played"><span>{{ match.home_score }}</span><span>{{ match.away_score }}</span></div>
+       <span class="game__item__date" *ngIf="!match.played">{{ match.date | amDateFormat:'HH:mm' }}</span>
+     </ion-col>
+     <ion-col col-4 text-center class="teams__content__wrapper">
+      <img *ngIf="match.away_team.club.logo_url" [src]="match.away_team.club.logo_url" alt="{{ match.away_team.club.name }}">
+      <h3>{{ match.away_team.club.name }}</h3>
+    </ion-col>
+  </ion-row>
+</ion-grid>
 </div>
