@@ -27,7 +27,6 @@ export class USMService {
         });
 
         return this.http.get(url, opt).map(res => res.json());
-
     }
 
 

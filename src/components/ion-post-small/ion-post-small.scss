@@ -1,54 +1,14 @@
 ion-post-small {
+	.label-md {
+		margin: 0;
+	}
 
-	.post__item {
-		padding-left: 0;
+	.item-md {
+		padding: 0;
+	}
 
-		.item-inner{
-			padding-right: 0 !important;
-			border : none !important;
-
-			ion-label {
-				margin: $spacing 0px $spacing 0 !important;
-			}
-		}
-		
-		.item-inner{
-			padding-right: 0 !important;
-			border : none !important;
-
-			ion-label {
-				margin: $spacing 0px $spacing 0 !important;
-			}
-		}
-
-		&__wrapper {
-			display: inline-block;
-			width: 100px;
-			height: 70px;
-			background-size: cover;
-			background-position: center center;
-			vertical-align: top;
-			margin-right: 10px;
-			border-radius: $border-radius;
-
-			& + .post__item__content {
-				width: calc(100% - 126px);
-			}
-		}
-
-		&__content {
-			display: inline-block;
-			white-space: initial !important;
-			vertical-align: top;
-
-			h2 {
-				font-weight: 500;
-			}
-
-			.post__item__date {
-				color: $grey;
-			}
-		}
-	}	
-
+	.item-block .item-inner {
+		border: none !important;
+		padding-right: 0 !important;
+	}
 }

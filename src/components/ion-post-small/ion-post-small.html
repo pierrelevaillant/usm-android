@@ -1,9 +1,9 @@
-<button ion-item class="post__item">
-	<div class="post__item__wrapper" *ngIf="post.media" [ngStyle]="{'background-image': 'url(' + post.media.sizes.thumbnail.source_url + ')'}">
-	</div>
-
-	<div class="post__item__content">
-		<h2 [innerHTML]="post.title"></h2>
-		<small class="post__item__date" [innerHTML]="post.date | amCalendar:{lastWeek:'DD MMMM'}"></small>
+<button ion-item class="postItem">
+	<img class="postItem__smallImage" *ngIf="post.media" [lazyLoad]="post.media.sizes.medium.source_url"/>
+	<div class="postItem__content {{post.type}}" >
+		<h2><ion-icon *ngIf="post.type=='gallery'" name="photos"></ion-icon> {{post.title}}</h2>
+		<small *ngIf="post.type!='gallery'" class="postItem__category" [innerHTML]="post.categories[0].name"></small>
+		<small *ngIf="post.type=='gallery' && post.gallery_count" class="postItem__galleryCount">{{post.gallery_count}} photos</small>
+		<small class="postItem__date" [innerHTML]="post.date | amDateFormat: 'DD MMMM'"></small>
 	</div>
 </button>

@@ -57,23 +57,23 @@ export class LivePage {
 
 	itemTapped(event, post) {
 		let alert = this.alertCtrl.create({
-		title: 'Redirection',
-		message: 'Vous allez être redirigé vers ' + (post.social.type == 'facebook' ? 'Facebook' : 'Instagram'),
-		buttons: [
-		  {
-		    text: 'Annuler',
-		    role: 'cancel',
-		    handler: () => {
-		      //
-		    }
-		  },
-		  {
-		    text: 'Continuer',
-		    handler: () => {
-				this.iab.create(post.social.link);
-		    }
-		  }
-		]
+			title: 'Redirection',
+			message: 'Vous allez être redirigé vers ' + (post.social.type == 'facebook' ? 'Facebook' : 'Instagram'),
+			buttons: [
+			{
+				text: 'Annuler',
+				role: 'cancel',
+				handler: () => {
+					//
+				}
+			},
+			{
+				text: 'Continuer',
+				handler: () => {
+					this.iab.create(post.social.link);
+				}
+			}
+			]
 		});
 		alert.present();
 	}

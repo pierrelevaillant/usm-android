@@ -5,6 +5,8 @@ import { SocialSharing } from '@ionic-native/social-sharing';
 import { USMService } from '../../services/USMService';
 import { Fabric } from '../../services/Fabric';
 
+import { SingleGamePage } from '../single-game/single-game';
+
 @IonicPage()
 @Component({
   selector: 'page-single-post',
@@ -15,7 +17,7 @@ export class SinglePostPage {
   relatedPosts: any = [];
 
   constructor(
-    private nav: NavController,
+    private navCtl: NavController,
     private navParams: NavParams,
     private socialSharing: SocialSharing,
     private USMService: USMService,
@@ -44,8 +46,14 @@ export class SinglePostPage {
       );
   }
 
+  gameTapped(event, game) {
+    this.navCtl.push(SingleGamePage, {
+      game: game
+    });
+  }
+
   itemTapped(event, post) {
-    this.nav.push(SinglePostPage, {
+    this.navCtl.push(SinglePostPage, {
       post: post
     });
   }

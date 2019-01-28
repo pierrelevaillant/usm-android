@@ -45,7 +45,7 @@ $colors: (
 
 $red: #C41E1E;
 $green: #4CAF50;
-$blue: #154EBB;
+$blue: #244D9C;
 $black: #171819;
 $light-black: #222529;
 $grey: #B1B1B1;
@@ -58,6 +58,9 @@ $dark-blue: #0A1731;
 $spacing: 5px;
 $border-radius: 2px;
 $shadow: 0px 1px 1px rgba(0, 0, 0, 0.05);
+
+
+$title-font: 'DINNextLTPro-MediumCond';
 
 // App Windows Variables
 // --------------------------------------------------
@@ -87,8 +90,10 @@ $shadow: 0px 1px 1px rgba(0, 0, 0, 0.05);
 // Fonts
 // --------------------------------------------------
 
-@import "roboto";
+//@import "roboto";
 
-.item-md, .content-md, .card-title-md {
+.item-md,
+.content-md,
+.card-title-md {
 	color: #3D4248 !important;
 }

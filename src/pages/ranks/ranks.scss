@@ -1,84 +1,98 @@
-.ranks__message {
-	text-align: center;
-	color: $grey;
-}
-
-page-ranks {
-	.list {
-		box-shadow: 0 4px 5px 0 rgba(0,0,0,0.02), 0 1px 10px 0 rgba(0,0,0,0.02), 0 2px 4px -1px rgba(0,0,0,0.02);
+	.ranks__message {
+		text-align: center;
+		color: $grey;
 	}
 
-	.has-refresher > .scroll-content {
-		border-top: none;
-	}
+	page-ranks {
+		.list {
+			box-shadow: $shadow;
+		}
 
-	.content-md {
-		background: $light-blue;
-	}
-	.scroll-content {
-		padding: 20px 0 !important;
-	}
+		.has-refresher > .scroll-content {
+			border-top: none;
+		}
 
-	ion-toolbar {
-		overflow-x: scroll !important;
-		background-color: #154EBB;
-	}
+		.content-md {
+			background: $light-blue;
+		}
+		.scroll-content {
+			padding: 20px 0 !important;
+		}
 
-	ion-segment {
-		display: block;
-		flex: inherit !important;
+		ion-toolbar {
+			overflow-x: scroll !important;
+			background-color: #154EBB;
+		}
 
-		.segment-button {
-			display: inline;
+		ion-segment {
+			display: block;
 			flex: inherit !important;
-			width: auto !important;
-			padding: 0 10px 10px !important;
-		}
-	}
 
-	.segment-md .segment-button.activated, .segment-md .segment-button.segment-activated {
-		border-color: white;
-	}
-
-
-	.segment-md .segment-button {
-		color: white;
-	}
-
-	.item__rank {
-		> * {
-			display: inline-block;
-			vertical-align: middle;
-		}
-
-		&__nb {
-			font-weight: bold;
-			width: 15px;
-		}
-
-		&__round, &__diff {
-			color: $grey;
-		}
-
-		&__logo {
-			width: 20px;
-			margin-left: 10px;
-		}
-
-		&__team__name {
-			margin-left: 10px;
-		}
-
-		&__numbers {
-			float: right;
-			width: 100px;
-
-			> * {
-				width: 25px;
-				text-align: right;
-				display: inline-block;
+			.segment-button {
+				display: inline;
+				flex: inherit !important;
+				width: auto !important;
+				padding: 0 10px 10px !important;
 			}
 		}
 
+		.segment-md .segment-button.activated, .segment-md .segment-button.segment-activated {
+			border-color: white;
+		}
+
+
+		.segment-md .segment-button {
+			color: white;
+		}
+
+		.item__rank {
+			> * {
+				display: inline-block;
+				vertical-align: middle;
+			}
+
+			&--default {
+				font-size: 12px;
+				color: $grey;
+				font-weight: 400;
+
+				.item__rank__nb {
+					font-weight: normal;
+				} 
+			}
+
+			&__nb {
+				font-weight: bold;
+				width: 15px;
+			}
+
+			&__round, &__diff {
+				color: $grey;
+			}
+
+			&__logo {
+				width: 20px;
+				margin-left: 10px;
+			}
+
+			&__team__name {
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				width: 150px;
+				margin-left: 10px;
+			}
+
+			&__numbers {
+				float: right;
+				width: 100px;
+
+				> * {
+					width: 25px;
+					text-align: right;
+					display: inline-block;
+				}
+			}
+
+		}
 	}
-}

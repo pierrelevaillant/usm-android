@@ -15,7 +15,7 @@
 			<ion-avatar item-left>
 				<img [src]="post.social.owner.image">
 			</ion-avatar>
-			<h2>US Montagnarde<br><span>{{post.social.date*1000 | date:'dd/MM à HH:mm' }}</span></h2>
+			<h2>US Montagnarde<br><span class="small">{{post.social.date*1000 | date:'d MMMM — HH:mm' }}</span></h2>
 		</header>
 		<div (click)="itemTapped($event, post)">
 			<div *ngIf="post.social.type=='facebook'" class="live__item__content {{post.social.type}}" [innerHTML]="post.social.text"></div>

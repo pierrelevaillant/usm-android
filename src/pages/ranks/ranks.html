@@ -10,7 +10,7 @@
 		<ion-title>Classements</ion-title>
 		<ion-buttons end>
 			<button ion-button icon-only (click)="seasonsPopover($event)">
-				<ion-icon name="more"></ion-icon>
+				<ion-icon name="calendar"></ion-icon>
 			</button>
 		</ion-buttons>
 	</ion-navbar>
@@ -31,12 +31,12 @@
 	<ion-list>
 		<ion-item *ngIf="ranks && ranks.length">
 			<div class="item__rank item__rank--default">
-				<span class="item__rank__nb">Equipe</span>
+				<span class="item__rank__nb">Pos / Club</span>
 				<span class="item__rank__team__name"></span>
 				<div class="item__rank__numbers">
-					<span class="item__rank__points"><b>Pts</b></span>
+					<span class="item__rank__points">Pts</span>
 					<span class="item__rank__round">J</span>
-					<span class="item__rank__diff">D</span>
+					<span class="item__rank__diff">Diff</span>
 				</div>
 			</div>
 		</ion-item>

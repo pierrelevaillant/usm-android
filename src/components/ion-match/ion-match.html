@@ -29,5 +29,10 @@
       <h3>{{ match.away_team.club.name }}</h3>
     </ion-col>
   </ion-row>
+  <ion-row *ngIf="recap" class="game__item__meta">
+    <ion-col col-12 text-center>
+      {{ match.competition.name }} &bull; {{match.date | amDateFormat:'ddd Do MMMM • HH:mm'}}
+    </ion-col>
+  </ion-row>
 </ion-grid>
 </div>

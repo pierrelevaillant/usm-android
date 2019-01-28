@@ -5,31 +5,26 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar>
     <ion-title>Équipes</ion-title>
-    <ion-buttons end>
-      <button ion-button icon-only (click)="seasonsPopover($event)">
+    <ion-buttons end (click)="seasonsPopover($event)">
+      <button>2018/2019</button>
+      <button ion-button icon-only>
         <ion-icon name="calendar"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
-
-   <ion-toolbar no-border-top>
+  <ion-toolbar no-border-top>
     <ion-segment *ngIf="teams" [(ngModel)]="segment" (ionChange)="segmentChanged($event)">
       <ion-segment-button *ngFor="let team of teams" value="{{team.id}}">
         {{team.name}}
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
-
 </ion-header>
 
-
 <ion-content padding>
-
   <ion-list>
-    <ion-match *ngFor="let match of teamSeason" [match]="match" (click)="gameTapped($event, match)"></ion-match>
+    <ion-match *ngFor="let match of teamSeason" [match]="match" [id]="match.id" (click)="gameTapped($event, match)"></ion-match>
   </ion-list>
-
 </ion-content>

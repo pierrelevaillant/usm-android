@@ -1,37 +1,37 @@
 <ion-header>
-  	<ion-navbar>
-    	<ion-toolbar>
-      	<ion-title>Recherche</ion-title>
+ <ion-navbar>
+   <ion-toolbar>
+     <ion-title>Recherche</ion-title>
 
-      	<ion-buttons start>
-        	<button ion-button (click)="dismiss()">
-          			<ion-icon name="md-close"></ion-icon>
-        		</button>
-      		</ion-buttons>
-    	</ion-toolbar>
+     <ion-buttons start>
+       <button ion-button icon-only (click)="dismiss()">
+         <ion-icon name="md-close"></ion-icon>
+       </button>
+     </ion-buttons>
+   </ion-toolbar>
 
-    	<ion-toolbar>
-	      	<ion-searchbar #searchBar
-	        [(ngModel)]="searchQuery"
-	        [showCancelButton]="shouldShowCancel"
-	        (ionInput)="onInput($event)"
-	        (ionCancel)="onCancel($event)" placeholder="Tapez un ou des mots-clés">
-      		</ion-searchbar>
-    	</ion-toolbar>
+   <ion-toolbar>
+    <ion-searchbar #searchBar
+    [(ngModel)]="searchQuery"
+    [showCancelButton]="shouldShowCancel"
+    (ionInput)="onInput($event)"
+    (ionCancel)="onCancel($event)" placeholder="Tapez un ou des mots-clés">
+  </ion-searchbar>
+</ion-toolbar>
 
-  	</ion-navbar>
+</ion-navbar>
 </ion-header>
 
 <ion-content>
 
-  	<ion-list *ngIf="!items"> 
-    	<button ion-item *ngFor="let post of searchHistory" (click)="historyTapped($event, post)">
-      		<h2 [innerHTML]="post.title"></h2>
-    	</button>
-  	</ion-list>
+ <ion-list *ngIf="!items"> 
+   <button ion-item *ngFor="let post of searchHistory" (click)="historyTapped($event, post)">
+    <h2 [innerHTML]="post.title"></h2>
+  </button>
+</ion-list>
 
-  	<ion-list> 
-        <ion-post-small *ngFor="let post of items" [post]="post" (click)="postTapped($event, post)"></ion-post-small>
-    </ion-list>
+<ion-list> 
+  <ion-post-small *ngFor="let post of items" [post]="post" (click)="postTapped($event, post)"></ion-post-small>
+</ion-list>
 
 </ion-content>

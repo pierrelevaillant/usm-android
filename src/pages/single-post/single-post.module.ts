@@ -9,17 +9,17 @@ import { MomentModule } from 'angular2-moment';
 
 @NgModule({
   declarations: [
-    SinglePostPage,
+  SinglePostPage,
   ],
   imports: [
-  	IonMatchModule,
-    IonPostSmallModule,
-  	LazyLoadImageModule,
-  	MomentModule,
-    IonicPageModule.forChild(SinglePostPage),
+  IonMatchModule,
+  IonPostSmallModule,
+  LazyLoadImageModule,
+  MomentModule,
+  IonicPageModule.forChild(SinglePostPage),
   ],
   exports: [
-    SinglePostPage
+  SinglePostPage
   ]
 })
 export class SinglePostPageModule {}

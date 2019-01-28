@@ -11,31 +11,30 @@
 	</ion-navbar>
 </ion-header>
 
-<ion-content class="singlePost">
+<ion-content *ngIf="post" class="singlePost">
 
-	<div *ngIf="post">
+
+	<div class="featured_image" *ngIf="post.media" [ngStyle]="{'background-image': 'url(' + post.media.sizes.medium.source_url + ')'}"></div>
+
+	<ion-card-content>
+		<ion-card-title>
+			<h1 [innerHTML]="post.title"></h1>
+		</ion-card-title>
+		<small *ngIf="post.type!='gallery'" class="postItem__category" [innerHTML]="post.categories[0].name"></small>
+		<small class="singlePost__date" [innerHTML]="post.date | amDateFormat: 'DD MMMM YYYY'"></small>
+		<div [innerHTML]="post.content"></div>
+	</ion-card-content>
+
+	<ion-card-content class="singlePost__similarArticles" *ngIf="relatedPosts">
+		<h3>Articles similaires</h3>
+
+		<hr>
+
+		<ion-list>
+			<ion-post-small *ngFor="let post of relatedPosts" [post]="post" (click)="itemTapped($event, post)"></ion-post-small>
+		</ion-list>
 		
-		<div class="featured_image" *ngIf="post.media" [ngStyle]="{'background-image': 'url(' + post.media.sizes.medium.source_url + ')'}"></div>
-		
-		<ion-match *ngIf="post.featured_match" [match]="post.featured_match"></ion-match>
-		<ion-card-content>
-			<ion-card-title>
-				<h1 [innerHTML]="post.title"></h1>
-			</ion-card-title>
-			<small class="singlePost__date" [innerHTML]="post.date | amCalendar:{lastWeek:'DD/MM/YYYY'}"></small>
-			<div [innerHTML]="post.content"></div>
-		</ion-card-content>
-		
-		<ion-card-content class="singlePost__similarArticles" *ngIf="relatedPosts">
-			<hr>
+	</ion-card-content>
 
-			<h3>Articles similaires</h3>
-
-			<ion-list>
-				<ion-post-small *ngFor="let post of relatedPosts" [post]="post" (click)="itemTapped($event, post)"></ion-post-small>
-			</ion-list>
-
-		</ion-card-content>
-	</div>
 
 </ion-content>

@@ -16,13 +16,13 @@
   </ion-refresher>
 
   <ion-list>
-    
-    <ion-slides *ngIf="matchs && matchs[0].live == false" pager>
+
+    <ion-slides *ngIf="matchs && matchs[0].live == false" pager (click)="lastNextGamesTapped()">
       <ion-slide *ngFor="let match of matchs">
         <ion-match recap="true" [match]="match"></ion-match>
       </ion-slide>
     </ion-slides>
-    
+
     <ion-match-live *ngIf="matchs && matchs[0].live == true" [match]="matchs[0]"></ion-match-live>  
 
     <ion-post *ngFor="let post of items" [post]="post" (click)="itemTapped($event, post)"></ion-post>

@@ -19,7 +19,6 @@ import { MediasPageModule } from '../pages/medias/medias.module';
 import { RanksPageModule } from '../pages/ranks/ranks.module';
 import { SingleGalleryPageModule } from '../pages/single-gallery/single-gallery.module';
 import { PopSeasonsPageModule } from '../pages/pop-seasons/pop-seasons.module';
-
 import { TabsPage } from '../pages/tabs/tabs';
 
 // Cordova plugins
@@ -34,44 +33,44 @@ import {OneSignal} from '@ionic-native/onesignal';
 
 @NgModule({
   declarations: [
-    MyApp,
-    TabsPage
+  MyApp,
+  TabsPage
   ],
   imports: [
-    
-    // Pages
-    HomePageModule,
-    TeamsPageModule,
-    SearchPageModule,
-    SinglePostPageModule,
-    SingleGamePageModule,
-    LivePageModule,
-    RanksPageModule,
-    MediasPageModule,
-    SingleGalleryPageModule,
-    PopSeasonsPageModule,
 
-    BrowserModule,
-    MomentModule,
-    LazyLoadImageModule,
-    HttpModule,
-    IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
+  // Pages
+  HomePageModule,
+  TeamsPageModule,
+  SearchPageModule,
+  SinglePostPageModule,
+  SingleGamePageModule,
+  LivePageModule,
+  RanksPageModule,
+  MediasPageModule,
+  SingleGalleryPageModule,
+  PopSeasonsPageModule,
+
+  BrowserModule,
+  MomentModule,
+  LazyLoadImageModule,
+  HttpModule,
+  IonicModule.forRoot(MyApp),
+  IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    TabsPage
+  MyApp,
+  TabsPage
   ],
   providers: [
-    USMService,
-    Fabric,
-    StatusBar,
-    InAppBrowser,
-    SplashScreen,
-    SocialSharing,
-    OneSignal,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+  USMService,
+  Fabric,
+  StatusBar,
+  InAppBrowser,
+  SplashScreen,
+  SocialSharing,
+  OneSignal,
+  {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
 export class AppModule {}

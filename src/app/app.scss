@@ -15,13 +15,100 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
-// ion-app.md {
-//   font-family: "Helvetica Neue";
-// }
+ion-app.md {
+  font-family: "NeueHaasUnicaW1G-Regular";
+  font-size: 1rem;
+}
+
+small, .small {
+  font-size: 13px;
+}
 
 img {
 	width: 100%;
 	height: auto;
+}
+
+h1, h3 {
+  font-family: "DINNextLTPro-MediumCond";
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+}
+
+h1 {
+  font-size: 37px;
+  line-height: 40px;
+}
+
+.item-md h2 {
+  font-family: "NeueHaasUnicaW1G-Medium";
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.postItem {
+  margin-top: $spacing;
+  box-shadow: $shadow;
+
+  h2 {
+    margin: 0;
+    white-space: normal;
+    margin-bottom: $spacing;
+  }
+
+  &__category {
+    color: $blue;
+    text-transform: uppercase;
+    margin-right: 2px;
+    font-family: $title-font;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+
+    &::after {
+      content: "\2022";
+      display: inline-block;
+      color: $grey;
+      margin-left: 6px;
+    }
+  }
+
+  &__smallImage {
+    float: right;
+    max-width: 90px;
+    max-height: 90px;
+    margin: 3*$spacing;
+    border-radius: $border-radius;
+    opacity: 0;
+  }
+
+  img {
+    transition: opacity 600ms ease-out;
+
+    &.ng2-lazyloaded {
+      opacity: 1;
+    }
+  }
+
+  ion-icon {
+    display: inline-block;
+    margin-right: 5px;
+    font-size: 1.6rem;
+  }
+
+  &__content {
+    padding: 2*$spacing 3*$spacing 3*$spacing 3*$spacing;
+  }
+
+  &__date {
+    color: $grey;
+    clear: both;
+  }
+
+  &__galleryCount {
+    color: $grey;
+    font-weight: 500;
+    margin-right: $spacing;
+  }
 }
 
 /* Style tables */
@@ -64,6 +151,17 @@ table tbody td, table tbody th {
   }
 }
 
+
+// Tabbar
+.tabs-md .tabbar {
+  background: #fff;
+}
+
+.footer-md::before, .tabs-md[tabsPlacement="bottom"] > .tabbar::before {
+  opacity: 0.5;
+  height: 2px;  
+}
+
 .tabsDark {
   .tabbar {
     background: $light-black;
@@ -97,6 +195,7 @@ scroll-content {
     width: 1px;
   }
 }
+
 
 /* Responsive tables
  
